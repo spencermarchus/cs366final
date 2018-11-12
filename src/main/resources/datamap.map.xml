@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/9/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap https://cayenne.apache.org/schema/9/modelMap.xsd"
+	 project-version="9">
+	<property name="defaultPackage" value="edu.ndsu.assignment3.cayenne.persistent"/>
+	<db-entity name="UserAccount">
+		<db-attribute name="Admin" type="BOOLEAN"/>
+		<db-attribute name="EmailAddress" type="VARCHAR" length="50"/>
+		<db-attribute name="Employee" type="BOOLEAN"/>
+		<db-attribute name="Manager" type="BOOLEAN"/>
+		<db-attribute name="Name" type="VARCHAR" length="100"/>
+		<db-attribute name="PK" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="PasswordHash" type="VARCHAR" length="128"/>
+		<db-attribute name="PasswordSalt" type="VARCHAR" length="32"/>
+		<db-attribute name="UserID" type="VARCHAR" length="25"/>
+	</db-entity>
+	<obj-entity name="UserAccount" className="edu.ndsu.assignment3.cayenne.persistent.UserAccount" dbEntityName="UserAccount">
+		<obj-attribute name="admin" type="boolean" db-attribute-path="Admin"/>
+		<obj-attribute name="emailAddress" type="java.lang.String" db-attribute-path="EmailAddress"/>
+		<obj-attribute name="employee" type="boolean" db-attribute-path="Employee"/>
+		<obj-attribute name="manager" type="boolean" db-attribute-path="Manager"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="Name"/>
+		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="PasswordHash"/>
+		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="PasswordSalt"/>
+		<obj-attribute name="userID" type="java.lang.String" db-attribute-path="UserID"/>
+	</obj-entity>
+</data-map>
