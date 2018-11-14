@@ -4,25 +4,184 @@
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap https://cayenne.apache.org/schema/9/modelMap.xsd"
 	 project-version="9">
 	<property name="defaultPackage" value="edu.ndsu.assignment3.cayenne.persistent"/>
-	<db-entity name="UserAccount">
-		<db-attribute name="Admin" type="BOOLEAN"/>
-		<db-attribute name="EmailAddress" type="VARCHAR" length="50"/>
-		<db-attribute name="Employee" type="BOOLEAN"/>
-		<db-attribute name="Manager" type="BOOLEAN"/>
-		<db-attribute name="Name" type="VARCHAR" length="100"/>
-		<db-attribute name="PK" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
-		<db-attribute name="PasswordHash" type="VARCHAR" length="128"/>
-		<db-attribute name="PasswordSalt" type="VARCHAR" length="32"/>
-		<db-attribute name="UserID" type="VARCHAR" length="25"/>
+	<db-entity name="Course">
+		<db-attribute name="address" type="VARCHAR" length="50"/>
+		<db-attribute name="course_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="email" type="VARCHAR" length="50"/>
+		<db-attribute name="name" type="VARCHAR" length="50"/>
+		<db-attribute name="phone" type="VARCHAR" length="12"/>
+		<db-attribute name="website" type="VARCHAR" length="250"/>
 	</db-entity>
-	<obj-entity name="UserAccount" className="edu.ndsu.assignment3.cayenne.persistent.UserAccount" dbEntityName="UserAccount">
-		<obj-attribute name="admin" type="boolean" db-attribute-path="Admin"/>
-		<obj-attribute name="emailAddress" type="java.lang.String" db-attribute-path="EmailAddress"/>
-		<obj-attribute name="employee" type="boolean" db-attribute-path="Employee"/>
-		<obj-attribute name="manager" type="boolean" db-attribute-path="Manager"/>
-		<obj-attribute name="name" type="java.lang.String" db-attribute-path="Name"/>
-		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="PasswordHash"/>
-		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="PasswordSalt"/>
-		<obj-attribute name="userID" type="java.lang.String" db-attribute-path="UserID"/>
+	<db-entity name="Enrollment">
+		<db-attribute name="enrollment_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="lesson_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="student_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="Guardian">
+		<db-attribute name="address" type="VARCHAR" length="50"/>
+		<db-attribute name="email" type="VARCHAR" length="50"/>
+		<db-attribute name="f_name" type="VARCHAR" length="20"/>
+		<db-attribute name="guardian_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="passwordHash" type="VARCHAR" length="128"/>
+		<db-attribute name="passwordSalt" type="VARCHAR" length="32"/>
+		<db-attribute name="phone" type="VARCHAR" length="12"/>
+	</db-entity>
+	<db-entity name="Guardianship">
+		<db-attribute name="gs_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="guardian_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="student_id" type="INTEGER" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="Instructor">
+		<db-attribute name="address" type="VARCHAR" length="100"/>
+		<db-attribute name="date_of_birth" type="VARCHAR" length="10"/>
+		<db-attribute name="email" type="VARCHAR" length="50"/>
+		<db-attribute name="f_name" type="VARCHAR" length="20"/>
+		<db-attribute name="instructor_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="is_supervisor" type="BOOLEAN"/>
+		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="passwordHash" type="VARCHAR" isMandatory="true" length="128"/>
+		<db-attribute name="passwordSalt" type="VARCHAR" isMandatory="true" length="32"/>
+		<db-attribute name="phone" type="VARCHAR" length="12"/>
+		<db-attribute name="wage" type="FLOAT"/>
+	</db-entity>
+	<db-entity name="InstructorWorking">
+		<db-attribute name="date_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="instructor_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="working_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="Lesson">
+		<db-attribute name="capacity" type="INTEGER"/>
+		<db-attribute name="course_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="lesson_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="level" type="VARCHAR" length="5"/>
+		<db-attribute name="name" type="VARCHAR" length="50"/>
+	</db-entity>
+	<db-entity name="LessonDate">
+		<db-attribute name="date_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="lesson_day" type="VARCHAR" isMandatory="true" length="10"/>
+		<db-attribute name="lesson_id" type="INTEGER" isMandatory="true"/>
+		<db-attribute name="lesson_time" type="VARCHAR" length="12"/>
+	</db-entity>
+	<db-entity name="Student">
+		<db-attribute name="birth_date" type="VARCHAR" length="10"/>
+		<db-attribute name="f_name" type="VARCHAR" length="20"/>
+		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="recommended_level" type="VARCHAR" length="10"/>
+		<db-attribute name="student_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<obj-entity name="Course" className="edu.ndsu.assignment3.cayenne.persistent.Course" dbEntityName="Course">
+		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
+		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
+		<obj-attribute name="website" type="java.lang.String" db-attribute-path="website"/>
 	</obj-entity>
+	<obj-entity name="Enrollment" className="edu.ndsu.assignment3.cayenne.persistent.Enrollment" dbEntityName="Enrollment">
+	</obj-entity>
+	<obj-entity name="Guardian" className="edu.ndsu.assignment3.cayenne.persistent.Guardian" dbEntityName="Guardian">
+		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
+		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
+		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
+		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
+		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
+	</obj-entity>
+	<obj-entity name="Guardianship" className="edu.ndsu.assignment3.cayenne.persistent.Guardianship" dbEntityName="Guardianship">
+	</obj-entity>
+	<obj-entity name="Instructor" className="edu.ndsu.assignment3.cayenne.persistent.Instructor" dbEntityName="Instructor">
+		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
+		<obj-attribute name="dateOfBirth" type="java.lang.String" db-attribute-path="date_of_birth"/>
+		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
+		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
+		<obj-attribute name="isSupervisor" type="boolean" db-attribute-path="is_supervisor"/>
+		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
+		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
+		<obj-attribute name="wage" type="float" db-attribute-path="wage"/>
+	</obj-entity>
+	<obj-entity name="InstructorWorking" className="edu.ndsu.assignment3.cayenne.persistent.InstructorWorking" dbEntityName="InstructorWorking">
+	</obj-entity>
+	<obj-entity name="Lesson" className="edu.ndsu.assignment3.cayenne.persistent.Lesson" dbEntityName="Lesson">
+		<obj-attribute name="capacity" type="int" db-attribute-path="capacity"/>
+		<obj-attribute name="level" type="java.lang.String" db-attribute-path="level"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
+	</obj-entity>
+	<obj-entity name="LessonDate" className="edu.ndsu.assignment3.cayenne.persistent.LessonDate" dbEntityName="LessonDate">
+		<obj-attribute name="lessonDay" type="java.lang.String" db-attribute-path="lesson_day"/>
+		<obj-attribute name="lessonTime" type="java.lang.String" db-attribute-path="lesson_time"/>
+	</obj-entity>
+	<obj-entity name="Student" className="edu.ndsu.assignment3.cayenne.persistent.Student" dbEntityName="Student">
+		<obj-attribute name="birthDate" type="java.lang.String" db-attribute-path="birth_date"/>
+		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
+		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="recommendedLevel" type="java.lang.String" db-attribute-path="recommended_level"/>
+	</obj-entity>
+	<db-relationship name="lessons" source="Course" target="Lesson" toMany="true">
+		<db-attribute-pair source="course_id" target="course_id"/>
+	</db-relationship>
+	<db-relationship name="lesson" source="Enrollment" target="Lesson" toMany="false">
+		<db-attribute-pair source="lesson_id" target="lesson_id"/>
+	</db-relationship>
+	<db-relationship name="student" source="Enrollment" target="Student" toMany="false">
+		<db-attribute-pair source="student_id" target="student_id"/>
+	</db-relationship>
+	<db-relationship name="guardianships" source="Guardian" target="Guardianship" toMany="true">
+		<db-attribute-pair source="guardian_id" target="guardian_id"/>
+	</db-relationship>
+	<db-relationship name="guardian" source="Guardianship" target="Guardian" toMany="false">
+		<db-attribute-pair source="guardian_id" target="guardian_id"/>
+	</db-relationship>
+	<db-relationship name="student" source="Guardianship" target="Student" toMany="false">
+		<db-attribute-pair source="student_id" target="student_id"/>
+	</db-relationship>
+	<db-relationship name="workings" source="Instructor" target="InstructorWorking" toMany="true">
+		<db-attribute-pair source="instructor_id" target="instructor_id"/>
+	</db-relationship>
+	<db-relationship name="instructor" source="InstructorWorking" target="Instructor" toMany="false">
+		<db-attribute-pair source="instructor_id" target="instructor_id"/>
+	</db-relationship>
+	<db-relationship name="lessondate" source="InstructorWorking" target="LessonDate" toMany="false">
+		<db-attribute-pair source="date_id" target="date_id"/>
+	</db-relationship>
+	<db-relationship name="course" source="Lesson" target="Course" toMany="false">
+		<db-attribute-pair source="course_id" target="course_id"/>
+	</db-relationship>
+	<db-relationship name="enrollments" source="Lesson" target="Enrollment" toMany="true">
+		<db-attribute-pair source="lesson_id" target="lesson_id"/>
+	</db-relationship>
+	<db-relationship name="instructorWorkings" source="Lesson" target="InstructorWorking" toMany="true">
+		<db-attribute-pair source="lesson_id" target="date_id"/>
+	</db-relationship>
+	<db-relationship name="lessonDates" source="Lesson" target="LessonDate" toMany="true">
+		<db-attribute-pair source="lesson_id" target="lesson_id"/>
+	</db-relationship>
+	<db-relationship name="instructorWorkings" source="LessonDate" target="InstructorWorking" toMany="true">
+		<db-attribute-pair source="date_id" target="date_id"/>
+	</db-relationship>
+	<db-relationship name="lesson" source="LessonDate" target="Lesson" toMany="false">
+		<db-attribute-pair source="lesson_id" target="lesson_id"/>
+	</db-relationship>
+	<db-relationship name="Enrollments" source="Student" target="Enrollment" toMany="true">
+		<db-attribute-pair source="student_id" target="student_id"/>
+	</db-relationship>
+	<db-relationship name="guardianship" source="Student" target="Guardianship" toMany="true">
+		<db-attribute-pair source="student_id" target="student_id"/>
+	</db-relationship>
+	<obj-relationship name="lessons" source="Course" target="Lesson" db-relationship-path="lessons"/>
+	<obj-relationship name="lesson" source="Enrollment" target="Lesson" db-relationship-path="lesson"/>
+	<obj-relationship name="student" source="Enrollment" target="Student" db-relationship-path="student"/>
+	<obj-relationship name="guardianships" source="Guardian" target="Guardianship" db-relationship-path="guardianships"/>
+	<obj-relationship name="guardian" source="Guardianship" target="Guardian" db-relationship-path="guardian"/>
+	<obj-relationship name="student" source="Guardianship" target="Student" db-relationship-path="student"/>
+	<obj-relationship name="workings" source="Instructor" target="InstructorWorking" db-relationship-path="workings"/>
+	<obj-relationship name="instructor" source="InstructorWorking" target="Instructor" db-relationship-path="instructor"/>
+	<obj-relationship name="lessondate" source="InstructorWorking" target="LessonDate" db-relationship-path="lessondate"/>
+	<obj-relationship name="instructorWorkings" source="Lesson" target="InstructorWorking" db-relationship-path="instructorWorkings"/>
+	<obj-relationship name="lessonDates" source="Lesson" target="LessonDate" db-relationship-path="lessonDates"/>
+	<obj-relationship name="lesson" source="LessonDate" target="Lesson" db-relationship-path="lesson"/>
+	<obj-relationship name="enrollments" source="Student" target="Enrollment" db-relationship-path="Enrollments"/>
+	<obj-relationship name="guardianship" source="Student" target="Guardianship" db-relationship-path="guardianship"/>
 </data-map>

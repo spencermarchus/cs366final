@@ -1,0 +1,1 @@
+1. could have mapped instructor shifts as times instead of mapping them directly to lessons. this would have been more like the real world, but would have resulted in messy queries to determine who was working what shift. to overcome this, we will have to add logic in the presentation to determine the hours an employee must work.
