@@ -1,0 +1,14 @@
+<html t:type="layout" title="My Account"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>Guardian PAGE</p>
+        </div>
+    </div>
+
+    
+    <t:pagelink page="Index" href="#">Return to home</t:pagelink>
+    
+</html>
