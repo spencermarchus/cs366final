@@ -1,6 +1,9 @@
 package edu.ndsu.assignment3.services;
 
+import java.util.List;
+
 import org.apache.cayenne.ObjectContext;
+import org.apache.cayenne.query.SelectQuery;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -14,6 +17,8 @@ import org.apache.shiro.util.SimpleByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import edu.ndsu.assignment3.cayenne.persistent.Guardian;
+import edu.ndsu.assignment3.cayenne.persistent.Instructor;
 import edu.ndsu.assignment3.cayenne.persistent.UserAccount;
 
 public class LocalSecurityRealm extends AuthorizingRealm {
@@ -26,26 +31,21 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		this.userAccountService = uas;
 		this.logger = LoggerFactory.getLogger(this.getClass());
 		
-		//copy-pasted code from assignment instructions
 		ObjectContext context = cayenneService.newContext();
-		UserAccount manager = userAccountService.createNewUserAccount(context);
-		manager.setUserID("john.doe");
-		manager.setName("John Doe");
-		manager.setPassword("password");
-		manager.setManager(true);
-		manager.setEmployee(true);
-		manager.setEmailAddress("john.doe@mysite.net");
+		UserAccount is = userAccountService.createNewUserAccount(context);
+		is.setEmail("spmarchus@gmail.com");
+		is.setPassword("password");
+		is.setInstructor(true);
+		is.setInstructorsupervisor(true);
 		context.commitChanges();
 		
 		//create a non-manager employee / admin
 		context = cayenneService.newContext();
-		UserAccount admin = userAccountService.createNewUserAccount(context);
-		admin.setUserID("spencer.marchus");
-		admin.setName("Spencer Marchus");
-		admin.setPassword("password");
-		admin.setAdmin(true);
-		admin.setEmployee(true);
-		admin.setEmailAddress("spencer.marchus@ndsu.edu");
+		UserAccount i = userAccountService.createNewUserAccount(context);
+		i.setEmail("instructor@gmail.com");
+		i.setPassword("password");
+		i.setInstructor(true);
+		is.setInstructorsupervisor(false);
 		context.commitChanges();
 
 	}
@@ -56,28 +56,31 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		if(principals == null || principals.isEmpty()) {
 			return null;
 		}
-		// The primary principal will be the username when logging in
-		String username = (String) principals.getPrimaryPrincipal();
-		logger.info("Received authorization request for " + username);
-		UserAccount userAccount = userAccountService.getUserAccountByUserID(username);
+		SimpleAuthorizationInfo authInfo = new SimpleAuthorizationInfo();
 		
-		// Add roles as appropriate 
-		if(userAccount != null) {
-			SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-			if(userAccount.isAdmin()) authorizationInfo.addRole("admin");
-			if(userAccount.isManager()) authorizationInfo.addRole("manager");
-			if(userAccount.isEmployee()) authorizationInfo.addRole("employee");
-			return authorizationInfo;
-		}
-		else {
-			return null; 
-		}
+		// The primary principal will be the username when logging in
+				String username = (String) principals.getPrimaryPrincipal();
+				logger.info("Received authorization request for " + username);
+				UserAccount userAccount = userAccountService.getUserAccountByUserID(username);
+				
+				// Add roles as appropriate 
+				if(userAccount != null) {
+					SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+					if(userAccount.isGuardian()) authorizationInfo.addRole("guardian");
+					if(userAccount.isInstructor()) authorizationInfo.addRole("manager");
+					if(userAccount.isInstructorsupervisor()) authorizationInfo.addRole("supervisor");
+					return authorizationInfo;
+				}
+				else {
+					return null; 
+				}
 	}
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
 		String username = upToken.getUsername();
+		
 		
 		logger.info("Received authentication request for " + username);
 		UserAccount userAccount = userAccountService.getUserAccountByUserID(username);

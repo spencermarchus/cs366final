@@ -25,7 +25,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 		ObjectContext context = cayenneSerivce.newContext();
 		try {
 			UserAccount userAccount = ObjectSelect.query(UserAccount.class)
-				.where(UserAccount.USER_ID.like(userID)).selectOne(context);
+				.where(UserAccount.EMAIL.like(userID)).selectOne(context);
 			if(userAccount == null) {
 				logger.info("No account for " + userID);
 			}

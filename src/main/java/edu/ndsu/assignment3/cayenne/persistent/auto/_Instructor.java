@@ -23,11 +23,11 @@ public abstract class _Instructor extends CayenneDataObject {
     public static final Property<String> DATE_OF_BIRTH = Property.create("dateOfBirth", String.class);
     public static final Property<String> EMAIL = Property.create("email", String.class);
     public static final Property<String> F_NAME = Property.create("fName", String.class);
-    public static final Property<Boolean> IS_SUPERVISOR = Property.create("isSupervisor", Boolean.class);
     public static final Property<String> L_NAME = Property.create("lName", String.class);
     public static final Property<String> PASSWORD_HASH = Property.create("passwordHash", String.class);
     public static final Property<String> PASSWORD_SALT = Property.create("passwordSalt", String.class);
     public static final Property<String> PHONE = Property.create("phone", String.class);
+    public static final Property<Boolean> SUPERVISOR = Property.create("supervisor", Boolean.class);
     public static final Property<Float> WAGE = Property.create("wage", Float.class);
     public static final Property<List<InstructorWorking>> WORKINGS = Property.create("workings", List.class);
 
@@ -59,14 +59,6 @@ public abstract class _Instructor extends CayenneDataObject {
         return (String)readProperty("fName");
     }
 
-    public void setIsSupervisor(boolean isSupervisor) {
-        writeProperty("isSupervisor", isSupervisor);
-    }
-	public boolean isIsSupervisor() {
-        Boolean value = (Boolean)readProperty("isSupervisor");
-        return (value != null) ? value.booleanValue() : false;
-    }
-
     public void setLName(String lName) {
         writeProperty("lName", lName);
     }
@@ -93,6 +85,14 @@ public abstract class _Instructor extends CayenneDataObject {
     }
     public String getPhone() {
         return (String)readProperty("phone");
+    }
+
+    public void setSupervisor(boolean supervisor) {
+        writeProperty("supervisor", supervisor);
+    }
+	public boolean isSupervisor() {
+        Boolean value = (Boolean)readProperty("supervisor");
+        return (value != null) ? value.booleanValue() : false;
     }
 
     public void setWage(float wage) {

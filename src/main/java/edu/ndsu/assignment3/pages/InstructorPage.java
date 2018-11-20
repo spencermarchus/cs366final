@@ -9,8 +9,8 @@ import org.tynamo.security.services.SecurityService;
 import edu.ndsu.assignment3.cayenne.persistent.UserAccount;
 import edu.ndsu.assignment3.services.UserAccountService;
 
-@RequiresRoles("managerAdminPage.java")
-public class ManagerPage 
+@RequiresRoles("instructor")
+public class InstructorPage 
 {
 	@Inject
 	SecurityService securityService;

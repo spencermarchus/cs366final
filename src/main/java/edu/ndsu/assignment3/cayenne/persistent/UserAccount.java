@@ -9,12 +9,11 @@ import edu.ndsu.assignment3.cayenne.persistent.auto._UserAccount;
 public class UserAccount extends _UserAccount {
 
     private static final long serialVersionUID = 1L; 
-    
     public Integer getPK()
     {
     	if(getObjectId() != null && !getObjectId().isTemporary())
     	{
-    		return (Integer) getObjectId().getIdSnapshot().get(PK_PK_COLUMN);
+    		return (Integer) getObjectId().getIdSnapshot().get(USER_ID_PK_COLUMN);
     	}
     	return null; 
     }
@@ -30,6 +29,4 @@ public class UserAccount extends _UserAccount {
     		setPasswordHash(new Sha512Hash(password, getPasswordSalt()).toHex());
     	}
     }
-
-
 }

@@ -38,11 +38,11 @@
 		<db-attribute name="email" type="VARCHAR" length="50"/>
 		<db-attribute name="f_name" type="VARCHAR" length="20"/>
 		<db-attribute name="instructor_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
-		<db-attribute name="is_supervisor" type="BOOLEAN"/>
 		<db-attribute name="l_name" type="VARCHAR" length="20"/>
 		<db-attribute name="passwordHash" type="VARCHAR" isMandatory="true" length="128"/>
 		<db-attribute name="passwordSalt" type="VARCHAR" isMandatory="true" length="32"/>
 		<db-attribute name="phone" type="VARCHAR" length="12"/>
+		<db-attribute name="supervisor" type="BOOLEAN"/>
 		<db-attribute name="wage" type="FLOAT"/>
 	</db-entity>
 	<db-entity name="InstructorWorking">
@@ -95,11 +95,11 @@
 		<obj-attribute name="dateOfBirth" type="java.lang.String" db-attribute-path="date_of_birth"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
 		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
-		<obj-attribute name="isSupervisor" type="boolean" db-attribute-path="is_supervisor"/>
 		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
 		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
 		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
 		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
+		<obj-attribute name="supervisor" type="boolean" db-attribute-path="supervisor"/>
 		<obj-attribute name="wage" type="float" db-attribute-path="wage"/>
 	</obj-entity>
 	<obj-entity name="InstructorWorking" className="edu.ndsu.assignment3.cayenne.persistent.InstructorWorking" dbEntityName="InstructorWorking">

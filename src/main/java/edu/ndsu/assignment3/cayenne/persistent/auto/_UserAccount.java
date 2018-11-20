@@ -13,53 +13,63 @@ public abstract class _UserAccount extends CayenneDataObject {
 
     private static final long serialVersionUID = 1L; 
 
-    public static final String PK_PK_COLUMN = "PK";
+    public static final String USER_ID_PK_COLUMN = "user_id";
 
-    public static final Property<Boolean> ADMIN = Property.create("admin", Boolean.class);
-    public static final Property<String> EMAIL_ADDRESS = Property.create("emailAddress", String.class);
-    public static final Property<Boolean> EMPLOYEE = Property.create("employee", Boolean.class);
-    public static final Property<Boolean> MANAGER = Property.create("manager", Boolean.class);
-    public static final Property<String> NAME = Property.create("name", String.class);
+    public static final Property<String> EMAIL = Property.create("email", String.class);
+    public static final Property<Boolean> GUARDIAN = Property.create("guardian", Boolean.class);
+    public static final Property<Integer> GUARDIAN_ID = Property.create("guardianId", Integer.class);
+    public static final Property<Boolean> INSTRUCTOR = Property.create("instructor", Boolean.class);
+    public static final Property<Integer> INSTRUCTOR_ID = Property.create("instructorId", Integer.class);
+    public static final Property<Boolean> INSTRUCTORSUPERVISOR = Property.create("instructorsupervisor", Boolean.class);
     public static final Property<String> PASSWORD_HASH = Property.create("passwordHash", String.class);
     public static final Property<String> PASSWORD_SALT = Property.create("passwordSalt", String.class);
-    public static final Property<String> USER_ID = Property.create("userID", String.class);
+    public static final Property<Integer> USER_ID = Property.create("userID", Integer.class);
 
-    public void setAdmin(boolean admin) {
-        writeProperty("admin", admin);
+    public void setEmail(String email) {
+        writeProperty("email", email);
     }
-	public boolean isAdmin() {
-        Boolean value = (Boolean)readProperty("admin");
+    public String getEmail() {
+        return (String)readProperty("email");
+    }
+
+    public void setGuardian(boolean guardian) {
+        writeProperty("guardian", guardian);
+    }
+	public boolean isGuardian() {
+        Boolean value = (Boolean)readProperty("guardian");
         return (value != null) ? value.booleanValue() : false;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        writeProperty("emailAddress", emailAddress);
+    public void setGuardianId(int guardianId) {
+        writeProperty("guardianId", guardianId);
     }
-    public String getEmailAddress() {
-        return (String)readProperty("emailAddress");
+    public int getGuardianId() {
+        Object value = readProperty("guardianId");
+        return (value != null) ? (Integer) value : 0;
     }
 
-    public void setEmployee(boolean employee) {
-        writeProperty("employee", employee);
+    public void setInstructor(boolean instructor) {
+        writeProperty("instructor", instructor);
     }
-	public boolean isEmployee() {
-        Boolean value = (Boolean)readProperty("employee");
+	public boolean isInstructor() {
+        Boolean value = (Boolean)readProperty("instructor");
         return (value != null) ? value.booleanValue() : false;
     }
 
-    public void setManager(boolean manager) {
-        writeProperty("manager", manager);
+    public void setInstructorId(int instructorId) {
+        writeProperty("instructorId", instructorId);
     }
-	public boolean isManager() {
-        Boolean value = (Boolean)readProperty("manager");
-        return (value != null) ? value.booleanValue() : false;
+    public int getInstructorId() {
+        Object value = readProperty("instructorId");
+        return (value != null) ? (Integer) value : 0;
     }
 
-    public void setName(String name) {
-        writeProperty("name", name);
+    public void setInstructorsupervisor(boolean instructorsupervisor) {
+        writeProperty("instructorsupervisor", instructorsupervisor);
     }
-    public String getName() {
-        return (String)readProperty("name");
+	public boolean isInstructorsupervisor() {
+        Boolean value = (Boolean)readProperty("instructorsupervisor");
+        return (value != null) ? value.booleanValue() : false;
     }
 
     public void setPasswordHash(String passwordHash) {
@@ -76,11 +86,11 @@ public abstract class _UserAccount extends CayenneDataObject {
         return (String)readProperty("passwordSalt");
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(Integer userID) {
         writeProperty("userID", userID);
     }
-    public String getUserID() {
-        return (String)readProperty("userID");
+    public Integer getUserID() {
+        return (Integer)readProperty("userID");
     }
 
 }

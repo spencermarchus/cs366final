@@ -9,8 +9,8 @@ import org.tynamo.security.services.SecurityService;
 import edu.ndsu.assignment3.cayenne.persistent.UserAccount;
 import edu.ndsu.assignment3.services.UserAccountService;
 
-@RequiresRoles("admin")
-public class AdminPage 
+@RequiresRoles("guardian")
+public class GuardianPage 
 {
 	@Inject
 	SecurityService securityService;
