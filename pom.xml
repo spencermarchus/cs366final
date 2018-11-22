@@ -28,6 +28,7 @@
         <version>6.0.0</version>
       </dependency>
       
+      
       <dependency>
      <groupId>org.apache.cayenne</groupId>
      <artifactId>cayenne-server</artifactId>
