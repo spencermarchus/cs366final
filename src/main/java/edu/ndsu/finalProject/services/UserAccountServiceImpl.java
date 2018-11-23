@@ -7,32 +7,77 @@ import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import edu.ndsu.finalProject.cayenne.persistent.Guardian;
+import edu.ndsu.finalProject.cayenne.persistent.Guardianship;
+import edu.ndsu.finalProject.cayenne.persistent.Instructor;
+import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
+import edu.ndsu.finalProject.cayenne.persistent.Student;
 import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 
 public class UserAccountServiceImpl implements UserAccountService {
 	
-	private CayenneService 	cayenneSerivce;
+	private CayenneService 	cayenneService;
 	private Logger 			logger;
 	
 	public UserAccountServiceImpl(CayenneService cayenneService) {
-		this.cayenneSerivce = cayenneService;
+		this.cayenneService = cayenneService;
 		logger = LoggerFactory.getLogger(this.getClass());
 	}
 
 	@Override
-	public UserAccount getUserAccountByEmail(String userID) {
+	public Instructor getInstructorByEmail(String userID) {
 		logger.info("Getting UserAccount for " + userID);
-		ObjectContext context = cayenneSerivce.newContext();
+		ObjectContext context = cayenneService.newContext();
 		try {
-			UserAccount userAccount = ObjectSelect.query(UserAccount.class)
-				.where(UserAccount.EMAIL.like(userID)).selectOne(context);
-			if(userAccount == null) {
+			Instructor instructor = ObjectSelect.query(Instructor.class)
+				.where(Instructor.EMAIL.like(userID)).selectOne(context);
+			if(instructor == null) {
 				logger.info("No account for " + userID);
 			}
-			return userAccount;
+			return instructor;
 		}
 		catch (CayenneRuntimeException e) {
 			logger.info("More than one UserAccount was returned for " + userID);
+			logger.info(e.toString(), e);
+			return null; 
+		}
+	}
+	
+	@Override
+	public InstructorWorking createNewInstructorWorking(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		
+		InstructorWorking iw = context.newObject(InstructorWorking.class);
+		return iw;
+	}
+	
+	
+	@Override
+	public Guardianship createNewGuardianship(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		
+		Guardianship g = context.newObject(Guardianship.class);
+		return g;
+	}
+	
+	@Override
+	public Guardian getGuardianByEmail(String userID) {
+		logger.info("Getting Guardian for " + userID);
+		ObjectContext context = cayenneService.newContext();
+		try {
+			Guardian g = ObjectSelect.query(Guardian.class)
+				.where(Guardian.EMAIL.like(userID)).selectOne(context);
+			if(g == null) {
+				logger.info("No account for " + userID);
+			}
+			return g;
+		}
+		catch (CayenneRuntimeException e) {
+			logger.info("More than one Guardian was returned for " + userID);
 			logger.info(e.toString(), e);
 			return null; 
 		}
@@ -41,11 +86,41 @@ public class UserAccountServiceImpl implements UserAccountService {
 	@Override
 	public UserAccount createNewUserAccount(ObjectContext context) {
 		if(context == null) {
-			context = cayenneSerivce.newContext();
+			context = cayenneService.newContext();
 		}
 		UserAccount userAccount = context.newObject(UserAccount.class);
 		userAccount.setPasswordSalt(new SecureRandomNumberGenerator().nextBytes().toHex());
 		return userAccount;
+	}
+	
+	@Override
+	public Instructor createNewInstructor(ObjectContext context) {
+		if(context == null) {
+			context = cayenneService.newContext();
+		}
+		Instructor i = context.newObject(Instructor.class);
+		i.setPasswordSalt(new SecureRandomNumberGenerator().nextBytes().toHex());
+		return i;
+	}
+	
+	@Override
+	public Student createNewStudent(ObjectContext context) {
+		if(context == null) {
+			context = cayenneService.newContext();
+		}
+		Student s = context.newObject(Student.class);
+		s.setRecommendedLevel("red");
+		return s;
+	}
+	
+	@Override
+	public Guardian createNewGuardian(ObjectContext context) {
+		if(context == null) {
+			context = cayenneService.newContext();
+		}
+		Guardian g = context.newObject(Guardian.class);
+		g.setPasswordSalt(new SecureRandomNumberGenerator().nextBytes().toHex());
+		return g;
 	}
 
 	@Override

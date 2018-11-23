@@ -1,9 +1,6 @@
 package edu.ndsu.finalProject.services;
 
-import java.util.List;
-
 import org.apache.cayenne.ObjectContext;
-import org.apache.cayenne.query.SelectQuery;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -29,23 +26,59 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		this.userAccountService = uas;
 		this.logger = LoggerFactory.getLogger(this.getClass());
 		
+	    //create supervisor employee	
 		ObjectContext context = cayenneService.newContext();
-		UserAccount is = userAccountService.createNewUserAccount(context);
+		Instructor is = userAccountService.createNewInstructor(context);
+		is.setAddress("123 1st St\nBismarck, ND\n58501");
 		is.setEmail("spmarchus@gmail.com");
 		is.setPassword("password");
-		is.setInstructor(true);
-		is.setInstructorsupervisor(true);
+		is.setSupervisor(true);
+		is.setDateOfBirth("10/12/1997");
+		is.setPhone("7014258830");
+		is.setFName("Spencer");
+		is.setLName("Marchus");
+		is.setWage((float)12.00);
+		
 		context.commitChanges();
 		
-		//create a non-manager employee / admin
+		//create a non-supervisor employee / admin
 		context = cayenneService.newContext();
-		UserAccount i = userAccountService.createNewUserAccount(context);
+		Instructor i = userAccountService.createNewInstructor(context);
+		is.setAddress("321 3rd Ave\nBismrack, ND\n58501");
 		i.setEmail("instructor@gmail.com");
 		i.setPassword("password");
-		i.setInstructor(true);
-		is.setInstructorsupervisor(false);
+		i.setSupervisor(false);
+		is.setDateOfBirth("10/12/1996");
+		is.setPhone("7014258830");
+		is.setFName("Recneps");
+		is.setLName("Suchram");
+		is.setWage((float)14.00);
 		context.commitChanges();
+		
+		//create a guardian
+		context = cayenneService.newContext();
+		Guardian g = userAccountService.createNewGuardian(context);
+		g.setFName("Sarah");
+		g.setLName("Marchus");
+		g.setAddress("123 1st St\nBismarck, ND\n58501");
+		g.setEmail("smarchus@gmail.com");
+		g.setPhone("7015872545");
 
+		//student
+		context = cayenneService.newContext();
+		Student s = userAccountService.createNewStudent(context);
+		s.setBirthDate("1/1/2007");
+		s.setFName("Johnny");
+		s.setLName("Marchus");
+		
+		//student - guardian
+		context = cayenneService.newContext();
+		Guardianship gs = userAccountService.createNewGuardianship(context);
+		//student and guardian set to what we just created above
+		gs.setGuardian(g);
+		gs.setStudent(s);
+		
+		
 	}
 	
 	@Override
@@ -56,22 +89,27 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		}
 		SimpleAuthorizationInfo authInfo = new SimpleAuthorizationInfo();
 		
-		// The primary principal will be the username when logging in
-				String username = (String) principals.getPrimaryPrincipal();
-				logger.info("Received authorization request for " + username);
-				UserAccount userAccount = userAccountService.getUserAccountByEmail(username);
-				
-				// Add roles as appropriate 
-				if(userAccount != null) {
-					SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-					if(userAccount.isGuardian()) authorizationInfo.addRole("guardian");
-					if(userAccount.isInstructor()) authorizationInfo.addRole("instructor");
-					if(userAccount.isInstructorsupervisor()) authorizationInfo.addRole("supervisor");
-					return authorizationInfo;
-				}
-				else {
-					return null; 
-				}
+			// The primary principal will be the username when logging in
+			String username = (String) principals.getPrimaryPrincipal();
+			logger.info("Received potential authorization request for " + username);
+			Instructor inst = userAccountService.getInstructorByEmail(username);
+			
+			String guardianUserName = (String) principals.getPrimaryPrincipal();
+			logger.info("Received potential authorization request for " + guardianUserName);
+			Guardian g = userAccountService.getGuardianByEmail(username);
+			
+			// Add roles as appropriate 
+			if(inst != null) {
+				SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+				authorizationInfo.addRole("instructor");
+				if(inst.isSupervisor()) authorizationInfo.addRole("supervisor");
+				return authorizationInfo;
+			}
+			else if(g != null) {
+				SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+				authorizationInfo.addRole("guardian");
+				return authorizationInfo;
+			}else { return null; } //something went horribly wrong
 	}
 
 	@Override
@@ -80,17 +118,28 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		String username = upToken.getUsername();
 		
 		
-		logger.info("Received authentication request for " + username);
-		UserAccount userAccount = userAccountService.getUserAccountByEmail(username);
+	
+		Instructor instructor = userAccountService.getInstructorByEmail(username);
 		
-		if(userAccount != null) {
+		logger.info("Checking to see if username matches Instructor or Guardian");
+		Guardian g = userAccountService.getGuardianByEmail(username);
+		
+		if(instructor != null) {
+			logger.info(username + " is instructor");
 			// Get the hashed password and the salt used for the hash
-			SimpleByteSource salt = new SimpleByteSource(userAccount.getPasswordSalt());
-			String hash = userAccount.getPasswordHash();
+			SimpleByteSource salt = new SimpleByteSource(instructor.getPasswordSalt());
+			String hash = instructor.getPasswordHash();
+			return new SimpleAuthenticationInfo(username, hash, salt, this.getName());
+		}else if(g != null)
+		{
+			logger.info(username + " is guardian");
+			SimpleByteSource salt = new SimpleByteSource(g.getPasswordSalt());
+			String hash = g.getPasswordHash();
 			return new SimpleAuthenticationInfo(username, hash, salt, this.getName());
 		}
 		else {
-			return null;
+			logger.info(username + " not found");
+			return null; //no username matches
 		}
 	}
 }

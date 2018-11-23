@@ -28,7 +28,6 @@ public abstract class _Instructor extends CayenneDataObject {
     public static final Property<String> PASSWORD_SALT = Property.create("passwordSalt", String.class);
     public static final Property<String> PHONE = Property.create("phone", String.class);
     public static final Property<Boolean> SUPERVISOR = Property.create("supervisor", Boolean.class);
-    public static final Property<Integer> USER_ID = Property.create("userID", Integer.class);
     public static final Property<Float> WAGE = Property.create("wage", Float.class);
     public static final Property<List<InstructorWorking>> WORKINGS = Property.create("workings", List.class);
 
@@ -94,14 +93,6 @@ public abstract class _Instructor extends CayenneDataObject {
 	public boolean isSupervisor() {
         Boolean value = (Boolean)readProperty("supervisor");
         return (value != null) ? value.booleanValue() : false;
-    }
-
-    public void setUserID(int userID) {
-        writeProperty("userID", userID);
-    }
-    public int getUserID() {
-        Object value = readProperty("userID");
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setWage(float wage) {

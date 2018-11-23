@@ -6,6 +6,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.tynamo.security.services.SecurityService;
 
+import edu.ndsu.finalProject.cayenne.persistent.Guardian;
 import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 import edu.ndsu.finalProject.services.UserAccountService;
 
@@ -20,12 +21,12 @@ public class GuardianPage
 	
 	@Property
 	@Persist
-	UserAccount userAccount;
+	Guardian guardian;
 	
 	void setupRender()
 	{
 		String username = securityService.getSubject().getPrincipal().toString();
-		userAccount = userAccountService.getUserAccountByEmail(username);
+		guardian = userAccountService.getGuardianByEmail(username);
 	}
 }
 

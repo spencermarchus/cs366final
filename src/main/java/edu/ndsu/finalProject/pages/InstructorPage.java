@@ -6,6 +6,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.tynamo.security.services.SecurityService;
 
+import edu.ndsu.finalProject.cayenne.persistent.Instructor;
 import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 import edu.ndsu.finalProject.services.UserAccountService;
 
@@ -20,7 +21,7 @@ public class InstructorPage
 	
 	@Property
 	@Persist
-	UserAccount userAccount;
+	Instructor inst;
 	
 	void setupRender()
 	{

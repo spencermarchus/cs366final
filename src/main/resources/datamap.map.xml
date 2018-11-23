@@ -26,7 +26,6 @@
 		<db-attribute name="passwordHash" type="VARCHAR" length="128"/>
 		<db-attribute name="passwordSalt" type="VARCHAR" length="32"/>
 		<db-attribute name="phone" type="VARCHAR" length="12"/>
-		<db-attribute name="user_id" type="INTEGER" isMandatory="true"/>
 	</db-entity>
 	<db-entity name="Guardianship">
 		<db-attribute name="gs_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
@@ -44,7 +43,6 @@
 		<db-attribute name="passwordSalt" type="VARCHAR" isMandatory="true" length="32"/>
 		<db-attribute name="phone" type="VARCHAR" length="12"/>
 		<db-attribute name="supervisor" type="BOOLEAN"/>
-		<db-attribute name="user_id" type="INTEGER"/>
 		<db-attribute name="wage" type="FLOAT"/>
 	</db-entity>
 	<db-entity name="InstructorWorking">
@@ -72,17 +70,6 @@
 		<db-attribute name="recommended_level" type="VARCHAR" length="10"/>
 		<db-attribute name="student_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 	</db-entity>
-	<db-entity name="UserAccount">
-		<db-attribute name="email" type="VARCHAR" length="50"/>
-		<db-attribute name="guardian" type="BOOLEAN"/>
-		<db-attribute name="guardian_id" type="INTEGER"/>
-		<db-attribute name="instructor" type="BOOLEAN"/>
-		<db-attribute name="instructor_id" type="INTEGER"/>
-		<db-attribute name="instructorsupervisor" type="BOOLEAN"/>
-		<db-attribute name="passwordHash" type="VARCHAR" length="128"/>
-		<db-attribute name="passwordSalt" type="VARCHAR" length="32"/>
-		<db-attribute name="user_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
-	</db-entity>
 	<obj-entity name="Course" className="edu.ndsu.finalProject.cayenne.persistent.Course" dbEntityName="Course">
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
@@ -100,7 +87,6 @@
 		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
 		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
 		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
-		<obj-attribute name="userID" type="java.lang.Integer" db-attribute-path="user_id"/>
 	</obj-entity>
 	<obj-entity name="Guardianship" className="edu.ndsu.finalProject.cayenne.persistent.Guardianship" dbEntityName="Guardianship">
 	</obj-entity>
@@ -114,7 +100,6 @@
 		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
 		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
 		<obj-attribute name="supervisor" type="boolean" db-attribute-path="supervisor"/>
-		<obj-attribute name="userID" type="int" db-attribute-path="user_id"/>
 		<obj-attribute name="wage" type="float" db-attribute-path="wage"/>
 	</obj-entity>
 	<obj-entity name="InstructorWorking" className="edu.ndsu.finalProject.cayenne.persistent.InstructorWorking" dbEntityName="InstructorWorking">
@@ -133,17 +118,6 @@
 		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
 		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
 		<obj-attribute name="recommendedLevel" type="java.lang.String" db-attribute-path="recommended_level"/>
-	</obj-entity>
-	<obj-entity name="UserAccount" className="edu.ndsu.finalProject.cayenne.persistent.UserAccount" dbEntityName="UserAccount">
-		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
-		<obj-attribute name="guardian" type="boolean" db-attribute-path="guardian"/>
-		<obj-attribute name="guardianId" type="int" db-attribute-path="guardian_id"/>
-		<obj-attribute name="instructor" type="boolean" db-attribute-path="instructor"/>
-		<obj-attribute name="instructorId" type="int" db-attribute-path="instructor_id"/>
-		<obj-attribute name="instructorsupervisor" type="boolean" db-attribute-path="instructorsupervisor"/>
-		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
-		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
-		<obj-attribute name="userID" type="java.lang.Integer" db-attribute-path="user_id"/>
 	</obj-entity>
 	<db-relationship name="lessons" source="Course" target="Lesson" toMany="true">
 		<db-attribute-pair source="course_id" target="course_id"/>
