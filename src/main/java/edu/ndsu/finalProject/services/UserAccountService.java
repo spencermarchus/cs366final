@@ -12,6 +12,10 @@ public interface UserAccountService
 	Guardianship createNewGuardianship(ObjectContext context);
 	InstructorWorking createNewInstructorWorking(ObjectContext context);
 	Student createNewStudent(ObjectContext context);
+	Course createNewCourse(ObjectContext context);
+	Enrollment createNewEnrollment(ObjectContext context);
+	Lesson createNewLesson(ObjectContext context);
+	LessonDate createNewLessonDate(ObjectContext context);
 	void updateUserAccount(UserAccount userAccount);
 }
 

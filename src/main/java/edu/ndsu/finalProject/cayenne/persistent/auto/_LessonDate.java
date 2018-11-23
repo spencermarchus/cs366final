@@ -45,11 +45,11 @@ public abstract class _LessonDate extends CayenneDataObject {
     public void removeFromInstructorWorkings(InstructorWorking obj) {
         removeToManyTarget("instructorWorkings", obj, true);
     }
+    
     @SuppressWarnings("unchecked")
     public List<InstructorWorking> getInstructorWorkings() {
         return (List<InstructorWorking>)readProperty("instructorWorkings");
     }
-
 
     public void setLesson(Lesson lesson) {
         setToOneTarget("lesson", lesson, true);

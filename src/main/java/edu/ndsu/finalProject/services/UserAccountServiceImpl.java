@@ -7,10 +7,14 @@ import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import edu.ndsu.finalProject.cayenne.persistent.Course;
+import edu.ndsu.finalProject.cayenne.persistent.Enrollment;
 import edu.ndsu.finalProject.cayenne.persistent.Guardian;
 import edu.ndsu.finalProject.cayenne.persistent.Guardianship;
 import edu.ndsu.finalProject.cayenne.persistent.Instructor;
 import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
+import edu.ndsu.finalProject.cayenne.persistent.Lesson;
+import edu.ndsu.finalProject.cayenne.persistent.LessonDate;
 import edu.ndsu.finalProject.cayenne.persistent.Student;
 import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 
@@ -52,7 +56,39 @@ public class UserAccountServiceImpl implements UserAccountService {
 		InstructorWorking iw = context.newObject(InstructorWorking.class);
 		return iw;
 	}
+	@Override
+	public Course createNewCourse(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		Course c = context.newObject(Course.class);
+		return c;
+	}
+	@Override
+	public Lesson createNewLesson(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		Lesson l = context.newObject(Lesson.class);
+		return l;
+	}
+	@Override
+	public Enrollment createNewEnrollment(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		Enrollment e = context.newObject(Enrollment.class);
+		return e;
+	}
 	
+	@Override
+	public LessonDate createNewLessonDate(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		LessonDate ld = context.newObject(LessonDate.class);
+		return ld;
+	}
 	
 	@Override
 	public Guardianship createNewGuardianship(ObjectContext context)
