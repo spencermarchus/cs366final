@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <t:pagelink page="index" class="navbar-brand">app</t:pagelink>
+            <t:pagelink page="index" class="navbar-brand">Home</t:pagelink>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -33,16 +33,15 @@
                     </t:any>
                 </t:loop>
         <t:security.authenticated>
-			
 		</t:security.authenticated>
 		<t:security.hasrole role="instructor">
-			<li><t:pagelink page="InstructorPage">Instructor Page</t:pagelink></li>
+			<li><t:pagelink page="instructors/InstructorPage">Instructor</t:pagelink></li>
 		</t:security.hasrole>
 		<t:security.hasrole role="guardian">
 			<li><t:pagelink page="GuardianPage">Guardian Page</t:pagelink></li>
 		</t:security.hasrole>
 		<t:security.hasrole role="supervisor">
-			<li><t:pagelink page="SupervisorPage">Supervisor Page</t:pagelink></li>
+			<li><t:pagelink page="supervisors/SupervisorPage">Supervisor</t:pagelink></li>
 		</t:security.hasrole>
             </ul>
             <span class="navbar-right">
@@ -73,7 +72,7 @@
     <hr />
 
     <footer>
-        <p>&copy; Team McSpencer 2015</p>
+        <p>&copy; Team McSpencer 2018</p>
     </footer>
 
 </div> <!-- /container -->

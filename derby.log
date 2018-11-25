@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Mon Nov 19 21:15:07 CST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0167-2f1d-4635-000006f3bc78 
+Sun Nov 25 00:46:52 CST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0167-499e-f1e2-000011128120 
 on database directory memory:C:\Users\spmar\eclipse-workspace\finalProject\testdb with class loader ContextLoader@finalProject Tapestry 5 Application 
 Loaded from file:/C:/Users/spmar/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_191-b12
+java.runtime.version=1.8.0_181-b13
 user.dir=C:\Users\spmar\eclipse-workspace\finalProject
 os.name=Windows 10
 os.arch=amd64

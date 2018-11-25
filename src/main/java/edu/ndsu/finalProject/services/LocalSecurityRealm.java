@@ -41,9 +41,9 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		context.commitChanges();
 		
 		//create a non-supervisor employee / admin
-		context = cayenneService.newContext();
+		
 		Instructor i = userAccountService.createNewInstructor(context);
-		is.setAddress("321 3rd Ave\nBismarck, ND\n58501");
+		i.setAddress("321 3rd Ave\nBismarck, ND\n58501");
 		i.setEmail("instructor@gmail.com");
 		i.setPassword("password");
 		i.setSupervisor(false);
@@ -55,7 +55,6 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		context.commitChanges();
 		
 		//create a guardian
-		context = cayenneService.newContext();
 		Guardian g = userAccountService.createNewGuardian(context);
 		g.setFName("Sarah");
 		g.setLName("Marchus");
@@ -64,20 +63,17 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		g.setPhone("7015872545");
 
 		//student
-		context = cayenneService.newContext();
 		Student s = userAccountService.createNewStudent(context);
 		s.setBirthDate("1/1/2007");
 		s.setFName("Johnny");
 		s.setLName("Marchus");
 		
 		//student - guardian
-		context = cayenneService.newContext();
 		Guardianship gs = userAccountService.createNewGuardianship(context);
 		//student and guardian set to what we just created above
 		gs.setGuardian(g);
 		gs.setStudent(s);
 		
-		context = cayenneService.newContext();
 		Course c = userAccountService.createNewCourse(context);
 		c.setName("Pebble Creek Golf Course");
 		c.setAddress("2525 N 19th St, Bismarck, ND 58503");
@@ -86,32 +82,57 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		c.setWebsite("http://bisparks.org/golf-courses/");
 		context.commitChanges();
 		
-		Lesson l = userAccountService.createNewLesson(null);
+		Lesson l = userAccountService.createNewLesson(context);
 		l.setCapacity(32);
 		l.setLevel("red");
 		l.setName("M-F Red Level 9AM June 3-7");
 		l.setCourse(c);
 		
-		context = cayenneService.newContext();
 		Enrollment e = userAccountService.createNewEnrollment(context);
 		e.setLesson(l);
 		e.setStudent(s);
+		context.commitChanges();
 		
+		//create some lesson dates and shifts
 		LessonDate ld = userAccountService.createNewLessonDate(context);
 		ld.setLesson(l);
-		ld.setLessonDay("06032019");
+		ld.setLessonDay("06/03/2019");
 		ld.setLessonTime("9:00-10:00AM");
+		context.commitChanges();
 		
-		context = cayenneService.newContext();
-		InstructorWorking iw = userAccountService.createNewInstructorWorking(context);
-		iw.setInstructor(i);
-		iw.setLessondate(ld);
+		LessonDate ld2 = userAccountService.createNewLessonDate(l.getObjectContext());
+		ld2.setLesson(l);
+		ld2.setLessonDay("06/04/2019");
+		ld2.setLessonTime("9:00-10:00AM");
+		context.commitChanges();
 		
-		//add instructor shift to lessondate
-		ld.addToInstructorWorkings(iw);
+		LessonDate ld3 = userAccountService.createNewLessonDate(l.getObjectContext());
+		ld3.setLesson(l);
+		ld3.setLessonDay("06/05/2019");
+		ld3.setLessonTime("9:00-10:00AM");
+		context.commitChanges();
 		
-		//add lessondate to course
+		
+		InstructorWorking iw = userAccountService.createNewInstructorWorking(ld.getObjectContext());
+		iw.setInstructorId(is.getPK());
+		iw.setDateId(ld.getPK());
+		ld.getObjectContext().commitChanges();
+		
+		InstructorWorking iw2 = userAccountService.createNewInstructorWorking(ld2.getObjectContext());
+		iw2.setInstructorId(is.getPK());
+		iw2.setDateId(ld2.getPK());
+		iw2.getObjectContext().commitChanges();
+		
+		
+		is.getObjectContext().commitChanges();
+		ld2.getObjectContext().commitChanges();
+		
+		
+		//add lesson to course
 		c.addToLessons(l);
+		
+		context.commitChanges();
+		
 	}
 	
 	@Override

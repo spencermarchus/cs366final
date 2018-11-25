@@ -1,11 +1,8 @@
 package edu.ndsu.finalProject.cayenne.persistent.auto;
 
-import java.util.List;
-
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.exp.Property;
 
-import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
 import edu.ndsu.finalProject.cayenne.persistent.Lesson;
 
 /**
@@ -22,7 +19,6 @@ public abstract class _LessonDate extends CayenneDataObject {
 
     public static final Property<String> LESSON_DAY = Property.create("lessonDay", String.class);
     public static final Property<String> LESSON_TIME = Property.create("lessonTime", String.class);
-    public static final Property<List<InstructorWorking>> INSTRUCTOR_WORKINGS = Property.create("instructorWorkings", List.class);
     public static final Property<Lesson> LESSON = Property.create("lesson", Lesson.class);
 
     public void setLessonDay(String lessonDay) {
@@ -37,18 +33,6 @@ public abstract class _LessonDate extends CayenneDataObject {
     }
     public String getLessonTime() {
         return (String)readProperty("lessonTime");
-    }
-
-    public void addToInstructorWorkings(InstructorWorking obj) {
-        addToManyTarget("instructorWorkings", obj, true);
-    }
-    public void removeFromInstructorWorkings(InstructorWorking obj) {
-        removeToManyTarget("instructorWorkings", obj, true);
-    }
-    
-    @SuppressWarnings("unchecked")
-    public List<InstructorWorking> getInstructorWorkings() {
-        return (List<InstructorWorking>)readProperty("instructorWorkings");
     }
 
     public void setLesson(Lesson lesson) {

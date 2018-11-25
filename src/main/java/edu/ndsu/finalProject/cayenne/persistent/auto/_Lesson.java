@@ -7,7 +7,6 @@ import org.apache.cayenne.exp.Property;
 
 import edu.ndsu.finalProject.cayenne.persistent.Course;
 import edu.ndsu.finalProject.cayenne.persistent.Enrollment;
-import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
 import edu.ndsu.finalProject.cayenne.persistent.LessonDate;
 
 /**
@@ -27,7 +26,6 @@ public abstract class _Lesson extends CayenneDataObject {
     public static final Property<String> NAME = Property.create("name", String.class);
     public static final Property<Course> COURSE = Property.create("course", Course.class);
     public static final Property<List<Enrollment>> ENROLLMENTS = Property.create("enrollments", List.class);
-    public static final Property<List<InstructorWorking>> INSTRUCTOR_WORKINGS = Property.create("instructorWorkings", List.class);
     public static final Property<List<LessonDate>> LESSON_DATES = Property.create("lessonDates", List.class);
 
     public void setCapacity(int capacity) {
@@ -70,18 +68,6 @@ public abstract class _Lesson extends CayenneDataObject {
     @SuppressWarnings("unchecked")
     public List<Enrollment> getEnrollments() {
         return (List<Enrollment>)readProperty("enrollments");
-    }
-
-
-    public void addToInstructorWorkings(InstructorWorking obj) {
-        addToManyTarget("instructorWorkings", obj, true);
-    }
-    public void removeFromInstructorWorkings(InstructorWorking obj) {
-        removeToManyTarget("instructorWorkings", obj, true);
-    }
-    @SuppressWarnings("unchecked")
-    public List<InstructorWorking> getInstructorWorkings() {
-        return (List<InstructorWorking>)readProperty("instructorWorkings");
     }
 
 

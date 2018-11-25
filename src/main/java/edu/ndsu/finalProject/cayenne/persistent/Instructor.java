@@ -22,4 +22,12 @@ public class Instructor extends _Instructor {
     	}
     }
 
+    public Integer getPK()
+    {
+    	if(getObjectId() != null && !getObjectId().isTemporary())
+    	{
+    		return (Integer) getObjectId().getIdSnapshot().get(INSTRUCTOR_ID_PK_COLUMN);
+    	}
+    	return null; 
+    }
 }

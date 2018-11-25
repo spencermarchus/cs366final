@@ -61,7 +61,7 @@
 		<db-attribute name="date_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="lesson_day" type="VARCHAR" length="10"/>
 		<db-attribute name="lesson_id" type="INTEGER"/>
-		<db-attribute name="lesson_time" type="VARCHAR" length="12"/>
+		<db-attribute name="lesson_time" type="VARCHAR" length="14"/>
 	</db-entity>
 	<db-entity name="Student">
 		<db-attribute name="birth_date" type="VARCHAR" length="10"/>
@@ -103,6 +103,8 @@
 		<obj-attribute name="wage" type="float" db-attribute-path="wage"/>
 	</obj-entity>
 	<obj-entity name="InstructorWorking" className="edu.ndsu.finalProject.cayenne.persistent.InstructorWorking" dbEntityName="InstructorWorking">
+		<obj-attribute name="dateId" type="int" db-attribute-path="date_id"/>
+		<obj-attribute name="instructorId" type="int" db-attribute-path="instructor_id"/>
 	</obj-entity>
 	<obj-entity name="Lesson" className="edu.ndsu.finalProject.cayenne.persistent.Lesson" dbEntityName="Lesson">
 		<obj-attribute name="capacity" type="int" db-attribute-path="capacity"/>
@@ -138,13 +140,6 @@
 		<db-attribute-pair source="student_id" target="student_id"/>
 	</db-relationship>
 	<db-relationship name="workings" source="Instructor" target="InstructorWorking" toMany="true">
-		<db-attribute-pair source="instructor_id" target="instructor_id"/>
-	</db-relationship>
-	<db-relationship name="instructor" source="InstructorWorking" target="Instructor" toMany="false">
-		<db-attribute-pair source="instructor_id" target="instructor_id"/>
-	</db-relationship>
-	<db-relationship name="lessondate" source="InstructorWorking" target="LessonDate" toMany="false">
-		<db-attribute-pair source="date_id" target="date_id"/>
 	</db-relationship>
 	<db-relationship name="course" source="Lesson" target="Course" toMany="false">
 		<db-attribute-pair source="course_id" target="course_id"/>
@@ -153,13 +148,11 @@
 		<db-attribute-pair source="lesson_id" target="lesson_id"/>
 	</db-relationship>
 	<db-relationship name="instructorWorkings" source="Lesson" target="InstructorWorking" toMany="true">
-		<db-attribute-pair source="lesson_id" target="date_id"/>
 	</db-relationship>
 	<db-relationship name="lessonDates" source="Lesson" target="LessonDate" toMany="true">
 		<db-attribute-pair source="lesson_id" target="lesson_id"/>
 	</db-relationship>
 	<db-relationship name="instructorWorkings" source="LessonDate" target="InstructorWorking" toMany="true">
-		<db-attribute-pair source="date_id" target="date_id"/>
 	</db-relationship>
 	<db-relationship name="lesson" source="LessonDate" target="Lesson" toMany="false">
 		<db-attribute-pair source="lesson_id" target="lesson_id"/>
@@ -176,14 +169,9 @@
 	<obj-relationship name="guardianships" source="Guardian" target="Guardianship" db-relationship-path="guardianships"/>
 	<obj-relationship name="guardian" source="Guardianship" target="Guardian" db-relationship-path="guardian"/>
 	<obj-relationship name="student" source="Guardianship" target="Student" db-relationship-path="student"/>
-	<obj-relationship name="workings" source="Instructor" target="InstructorWorking" db-relationship-path="workings"/>
-	<obj-relationship name="instructor" source="InstructorWorking" target="Instructor" db-relationship-path="instructor"/>
-	<obj-relationship name="lessondate" source="InstructorWorking" target="LessonDate" db-relationship-path="lessondate"/>
 	<obj-relationship name="course" source="Lesson" target="Course" deleteRule="Nullify" db-relationship-path="course"/>
 	<obj-relationship name="enrollments" source="Lesson" target="Enrollment" deleteRule="Deny" db-relationship-path="enrollments"/>
-	<obj-relationship name="instructorWorkings" source="Lesson" target="InstructorWorking" db-relationship-path="instructorWorkings"/>
 	<obj-relationship name="lessonDates" source="Lesson" target="LessonDate" db-relationship-path="lessonDates"/>
-	<obj-relationship name="instructorWorkings" source="LessonDate" target="InstructorWorking" deleteRule="Deny" db-relationship-path="instructorWorkings"/>
 	<obj-relationship name="lesson" source="LessonDate" target="Lesson" db-relationship-path="lesson"/>
 	<obj-relationship name="enrollments" source="Student" target="Enrollment" db-relationship-path="Enrollments"/>
 	<obj-relationship name="guardianship" source="Student" target="Guardianship" db-relationship-path="guardianship"/>

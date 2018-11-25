@@ -21,22 +21,27 @@ import org.apache.tapestry5.services.javascript.StackExtension;
 import org.apache.tapestry5.services.javascript.StackExtensionType;
 import org.slf4j.Logger;
 
+
+
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
  * configure and extend Tapestry, or to place your own service definitions.
  */
 public class AppModule
 {
-    public static void bind(ServiceBinder binder)
+	public static void bind(ServiceBinder binder)
     {
-        // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
-    	binder.bind(CayenneService.class, CayenneServiceImpl.class);
-    
+    	binder.bind(CayenneService.class, CayenneServiceImpl.class); 
 
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+    }
+	
+	public static DatabaseService buildDatabaseService(CayenneService cayenneService)
+    {
+    	return new DatabaseServiceImpl(cayenneService);
     }
     
     public static UserAccountService buildUserAccountService(

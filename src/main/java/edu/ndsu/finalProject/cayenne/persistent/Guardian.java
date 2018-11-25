@@ -20,4 +20,13 @@ public class Guardian extends _Guardian {
     		setPasswordHash(new Sha512Hash(password, getPasswordSalt()).toHex());
     	}
     }
+    
+    public Integer getPK()
+    {
+    	if(getObjectId() != null && !getObjectId().isTemporary())
+    	{
+    		return (Integer) getObjectId().getIdSnapshot().get(GUARDIAN_ID_PK_COLUMN);
+    	}
+    	return null; 
+    }
 }
