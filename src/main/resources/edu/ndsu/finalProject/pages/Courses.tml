@@ -5,7 +5,7 @@
     <div class="row">
         <div class="span12">
             <p>All Courses:</p>
-            <t:grid source="courses" row="course"></t:grid>
+            <t:grid source="courses" include="name, phone, address, email, website" row="course"></t:grid>
         </div>
     </div>
 

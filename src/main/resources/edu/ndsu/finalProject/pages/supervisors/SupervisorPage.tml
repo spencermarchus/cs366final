@@ -17,9 +17,15 @@
     <p><h4>Guardians</h4></p>
     </div>
 			<p><t:pagelink class="btn btn-default" page="supervisors/AllGuardians">View all Guardians&raquo;</t:pagelink></p>
-			<br/> <br/>
+	<div class="row">
+    <p><h4>Courses</h4></p>
+    </div>	
+    		<p><t:pagelink class="btn btn-default" page="supervisors/AddCourse">Add Course&raquo;</t:pagelink></p>	
 			
-        
+			
+			
+			
+	<br/> <br/>   
     <div class="row">
     	<t:pagelink page="Index" class="btn btn-primary" >Return to home</t:pagelink>
     </div>

@@ -21,4 +21,6 @@ public interface DatabaseService {
 	LessonDate getLessonDateByPK(ObjectContext context, int PK);
 	Instructor getInstructorByPK(ObjectContext context, int PK);
 	List<LessonDate> getLessonDatesByInstructor(Instructor i);
+	Course getNewCourse();
+	void updateCourse(Course c);
 }

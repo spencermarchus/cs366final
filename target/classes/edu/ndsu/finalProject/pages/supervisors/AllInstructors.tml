@@ -5,7 +5,7 @@
     <div class="row">
         <div class="span12">
             <p>All Instructors:</p>
-            <t:grid source="instructors" row="instructor"></t:grid>
+            <t:grid source="instructors" include="LName, FName, dateOfBirth, email, address" row="instructor"></t:grid>
             <br/> <br/>
             <br/> <br/>
             <t:pagelink page="supervisors/SupervisorPage" class="btn btn-primary" >Return</t:pagelink>

@@ -9,8 +9,6 @@ import java.util.List;
 import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.query.ObjectSelect;
-
-
 import edu.ndsu.finalProject.cayenne.persistent.*;
 
 
@@ -117,6 +115,13 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return lessonsWorking;
 	}
 	
+	public Course getNewCourse() {
+		return cayenneService.newContext().newObject(Course.class);
+	}
+	
+	public void updateCourse(Course c) {
+		c.getObjectContext().commitChanges();
+	}
 	
 	
 }
