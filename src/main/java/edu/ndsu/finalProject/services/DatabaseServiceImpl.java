@@ -16,6 +16,7 @@ import edu.ndsu.finalProject.cayenne.persistent.*;
 public class DatabaseServiceImpl implements DatabaseService {
 	
 	private CayenneService cayenneService;
+	private UserAccountService userAccountService;
 	
 	public DatabaseServiceImpl(CayenneService cayenneService) {
 		this.cayenneService = cayenneService;
@@ -121,6 +122,16 @@ public class DatabaseServiceImpl implements DatabaseService {
 	
 	public void updateCourse(Course c) {
 		c.getObjectContext().commitChanges();
+	}
+	
+	public Instructor getNewInstructor() {
+		ObjectContext context = cayenneService.newContext();
+		Instructor i = userAccountService.createNewInstructor(context);
+		return i;
+	}
+	
+	public void updateInstructor(Instructor i) {
+		i.getObjectContext().commitChanges();
 	}
 	
 	

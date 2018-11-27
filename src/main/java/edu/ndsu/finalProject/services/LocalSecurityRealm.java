@@ -13,7 +13,6 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.SimpleByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import edu.ndsu.finalProject.cayenne.persistent.*;
 
 public class LocalSecurityRealm extends AuthorizingRealm {
@@ -67,7 +66,7 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		s.setBirthDate("1/1/2007");
 		s.setFName("Johnny");
 		s.setLName("Marchus");
-		
+		context.commitChanges();
 		//student - guardian
 		Guardianship gs = userAccountService.createNewGuardianship(context);
 		//student and guardian set to what we just created above
@@ -87,6 +86,8 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		l.setLevel("red");
 		l.setName("M-F Red Level 9AM June 3-7");
 		l.setCourse(c);
+		
+		context.commitChanges();
 		
 		Enrollment e = userAccountService.createNewEnrollment(context);
 		e.setLessonId(l.getPK());

@@ -23,4 +23,6 @@ public interface DatabaseService {
 	List<LessonDate> getLessonDatesByInstructor(Instructor i);
 	Course getNewCourse();
 	void updateCourse(Course c);
+	Instructor getNewInstructor();
+	void updateInstructor(Instructor i);
 }

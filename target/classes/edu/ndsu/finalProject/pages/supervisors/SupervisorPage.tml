@@ -8,6 +8,7 @@
     </div>
             <p><t:pagelink class="btn btn-default" page="supervisors/AllInstructors">View all Instructors&raquo;</t:pagelink></p>
             <p><t:pagelink class="btn btn-default" page="supervisors/AllShifts">View all Shifts&raquo;</t:pagelink></p>
+            <p><t:pagelink class="btn btn-default" page="supervisors/AddInstructor">Add Instructors&raquo;</t:pagelink></p>
     <div class="row">
     <p><h4>Students</h4></p>
     </div>

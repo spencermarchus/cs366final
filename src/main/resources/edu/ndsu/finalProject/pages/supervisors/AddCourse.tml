@@ -8,15 +8,15 @@
   		<t:form t:id="addForm">
 	  		<t:errors />  
 	  		<t:label for="name" />
-	  		<t:textfield t:id="name" pattern="[A-Za-z ]+" title="Only letters A-Z" value="course.name"/> 
+	  		<t:textfield t:id="name" pattern="[A-Za-z ]+" maxlength="50" title="Only letters A-Z" value="course.name"/> 
 	  		<t:label for="phone" />
 	  		<t:textfield t:id="phone" pattern="[0-9]{10}" title="Phone number with only numbers" value="course.phone"/>
 	  		<t:label for="address" />
-	  		<t:textfield t:id="address" pattern="([a-zA-Z0-9]| |,|.)+" title="No special characters" value="course.address"/>
+	  		<t:textfield t:id="address" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="50" title="No special characters" value="course.address"/>
 	  		<t:label for="email" />
-	  		<t:textfield t:id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Example sample@gmail.com" value="course.email"/> 
+	  		<t:textfield t:id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50" title="Example sample@gmail.com" value="course.email"/> 
 	  		<t:label for="website" />
-	  		<t:textfield t:id="website" pattern="https?://.+" title="Include http://" value="course.website"/>
+	  		<t:textfield t:id="website" pattern="https?://.+" maxlength="250" title="Include http://" value="course.website"/>
 	  		
 			<br />
 			

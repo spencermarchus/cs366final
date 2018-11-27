@@ -1,0 +1,36 @@
+<html t:type="layout" title="Add Instructor"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Add Instructor</h3>
+      
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		<t:label for="FirstName" />
+	  		<t:textfield t:id="FirstName" pattern="[A-Za-z]+" maxlength="20" title="Only letters A-Z" value="instructor.FName"/> 
+	  		<t:label for="LastName" />
+	  		<t:textfield t:id="LastName" pattern="[A-Za-z]+" maxlength="20" title="Only letters A-Z" value="instructor.LName"/>
+	  		<t:label for="address" />
+	  		<t:textfield t:id="address" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="100" title="No special characters" value="instructor.address"/>
+	  		<t:label for="email" />
+	  		<t:textfield t:id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50" title="Example sample@gmail.com" value="instructor.email"/> 
+	  		<t:label for="phone" />
+	  		<t:textfield t:id="phone" pattern="[0-9]{10}" title="Phone number with only numbers" value="instructor.phone"/>
+	  		<t:label for="dateOfBirth" />
+	  		<t:textfield t:id="dateOfBirth" pattern="\d{1,2}/\d{1,2}/\d{4}" title="mm/dd/yyyy format. Must contain /." value="instructor.dateOfBirth"/>
+	  		<t:label for="wage" />
+	  		<t:textfield t:id="wage" step="0.01" min="0" type="number" value="instructor.wage"/>
+	  		<t:label for="tempPassword" />
+	  		<t:passwordfield t:id="tempPassword" pattern="[a-zA-Z0-9]+" required="" title="Password must only contain letters and numbers." value="tempPassword"/>
+	  		<t:label for="isSupervisor" />
+	  		<t:checkbox t:id="isSupervisor" value="instructor.supervisor"/> <br/>
+	  		
+			<br />
+			
+			
+	  		<t:submit value="Save" />&nbsp;
+	  		<t:pagelink page="supervisors/SupervisorPage" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>
