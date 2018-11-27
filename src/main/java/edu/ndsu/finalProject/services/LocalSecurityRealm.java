@@ -71,8 +71,8 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		//student - guardian
 		Guardianship gs = userAccountService.createNewGuardianship(context);
 		//student and guardian set to what we just created above
-		gs.setGuardian(g);
-		gs.setStudent(s);
+		gs.setGuardianId(g.getPK());
+		gs.setStudentId(s.getPK());
 		
 		Course c = userAccountService.createNewCourse(context);
 		c.setName("Pebble Creek Golf Course");
@@ -89,8 +89,8 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		l.setCourse(c);
 		
 		Enrollment e = userAccountService.createNewEnrollment(context);
-		e.setLesson(l);
-		e.setStudent(s);
+		e.setLessonId(l.getPK());
+		e.setStudentId(s.getPK());
 		context.commitChanges();
 		
 		//create some lesson dates and shifts
