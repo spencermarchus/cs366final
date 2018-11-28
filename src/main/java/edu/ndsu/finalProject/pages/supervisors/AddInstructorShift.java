@@ -60,21 +60,27 @@ public class AddInstructorShift {
 		
 	}
 
-	void onValidateFromAddForm() {
+	void onValidateFromAddForm(){
 		if(selectedLessonDate == null)
+		{
 			addForm.recordError("You must specify a lesson date.");
+		}
 		
-		//if(selectedInstructor == null)
-			//addForm.recordError("You must specify instructor.");
+		if(selectedInstructors.isEmpty())
+			addForm.recordError("You must specify instructors.");
 				
 		if(!addForm.getHasErrors())
 		{
+			
 			for(String s : selectedInstructors)
 			{
+				
 				InstructorWorking iw = db.getNewInstructorWorking();
 				iw.setInstructorId(db.getInstructorForName(null, s).getPK());
 				iw.setDateId(db.getLessonDateByToString(null, selectedLessonDate).getPK());
-				iw.getObjectContext().commitChanges();
+				
+				if(!(db.shiftExists(iw)))
+					iw.getObjectContext().commitChanges();
 			}
 		}
 	}
@@ -91,21 +97,13 @@ public class AddInstructorShift {
         selectModelLessonDate = selectModelFactory.create(ldStrings);
     }
 	
-	Object onSubmit() {
-		return "supervisors/AllShifts";
+	Object onSuccess() {
+		if(!addForm.getHasErrors())
+			return "supervisors/AllShifts";
 		
+		return this;
 	}
 	
-	/*
-	public Object onValueChangedFromLessonDateSelect(String selectedLesson)
-	{
-		System.out.println("HI");
-		selectedInstructors.add(db.getInstructorByPK(null, 200));
-		//db.getInstructorsByLessonDate(selectedLessonDate);
-		return null;
-	}
-	
-	*/
 	
 	 public ValueEncoder<String> getInstructorEncoder() {
 

@@ -13,4 +13,13 @@ public class Student extends _Student {
     	}
     	return null; 
     }
+    
+    public void graduate()
+    {
+    	if(this.getRecommendedLevel().equals("red"))
+    		this.setRecommendedLevel("white");
+    	
+    	if(this.getRecommendedLevel().equals("white"))
+    		this.setRecommendedLevel("blue");
+    }
 }

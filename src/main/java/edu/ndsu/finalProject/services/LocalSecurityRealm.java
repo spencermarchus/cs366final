@@ -39,7 +39,6 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		context.commitChanges();
 		
 		//create a non-supervisor employee / admin
-		
 		Instructor i = userAccountService.createNewInstructor(context);
 		i.setAddress("321 3rd Ave\nBismarck, ND\n58501");
 		i.setEmail("instructor@gmail.com");

@@ -15,14 +15,14 @@
   		<t:form t:id="addForm">
 	  			  		<t:errors /> 
 	  	 	<br/>			
- 			<h4>Lesson Date Assigned</h4>
+ 			<h4>Select Lesson Date</h4>
  			<t:select t:id="lessonDateSelect" value="selectedLessonDate" model="selectModelLessonDate" />
 	  		<br/>
 	  		
-			<br/><br/>
-			
-			<t:Palette t:id="palette" t:model="selectModelInstructor" t:selected="selectedInstructors" t:encoder="instructorEncoder"/>
 			<br/>
+			<h4>Select Instructors to Add to Lesson Date</h4>
+			<t:Palette t:id="Instructors" t:model="selectModelInstructor" t:selected="selectedInstructors" t:encoder="instructorEncoder"/>
+			<br/><br/>
 	  		<t:submit value="Save" />&nbsp;
 	  		<t:pagelink page="supervisors/SupervisorPage" class="btn btn-default">Cancel</t:pagelink>
   		</t:form>

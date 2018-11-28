@@ -58,6 +58,17 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return null;
 	}
 	
+	public boolean shiftExists(InstructorWorking test)
+	{
+		List<InstructorWorking> allShifts = this.getAllInstructorWorkings();
+		for(InstructorWorking iw : allShifts)
+		{
+			if(test.getDateId() == iw.getDateId() && test.getInstructorId() == iw.getInstructorId())
+				return true;
+		}
+		return false;
+	}
+	
 	public List<String> getAllLessonDateStrings() {
 		List<LessonDate> all = this.getAllLessonDates();
 		List<String> dates = new ArrayList<String>();

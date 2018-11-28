@@ -34,4 +34,5 @@ public interface DatabaseService {
 	LessonDate getLessonDateByToString(ObjectContext context, String name);
 	List<String> getAllLessonDateStrings();
 	List<String> getAllInstructorNames();
+	boolean shiftExists(InstructorWorking iw);
 }
