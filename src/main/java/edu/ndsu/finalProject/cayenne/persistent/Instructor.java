@@ -30,4 +30,10 @@ public class Instructor extends _Instructor {
     	}
     	return null; 
     }
+    
+    @Override
+    public String toString()
+    {
+    	return this.getName();
+    }
 }

@@ -13,4 +13,10 @@ public class LessonDate extends _LessonDate {
     	}
     	return null; 
     }
+    
+    @Override
+    public String toString()
+    {
+    	return this.getLessonDay()+" "+this.getLessonTime();
+    }
 }

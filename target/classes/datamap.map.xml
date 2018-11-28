@@ -20,9 +20,8 @@
 	<db-entity name="Guardian">
 		<db-attribute name="address" type="VARCHAR" length="50"/>
 		<db-attribute name="email" type="VARCHAR" length="50"/>
-		<db-attribute name="f_name" type="VARCHAR" length="20"/>
 		<db-attribute name="guardian_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
-		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="name" type="VARCHAR" length="50"/>
 		<db-attribute name="passwordHash" type="VARCHAR" length="128"/>
 		<db-attribute name="passwordSalt" type="VARCHAR" length="32"/>
 		<db-attribute name="phone" type="VARCHAR" length="12"/>
@@ -36,9 +35,8 @@
 		<db-attribute name="address" type="VARCHAR" length="100"/>
 		<db-attribute name="date_of_birth" type="VARCHAR" length="10"/>
 		<db-attribute name="email" type="VARCHAR" length="50"/>
-		<db-attribute name="f_name" type="VARCHAR" length="20"/>
 		<db-attribute name="instructor_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
-		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="name" type="VARCHAR" length="50"/>
 		<db-attribute name="passwordHash" type="VARCHAR" isMandatory="true" length="128"/>
 		<db-attribute name="passwordSalt" type="VARCHAR" isMandatory="true" length="32"/>
 		<db-attribute name="phone" type="VARCHAR" length="12"/>
@@ -53,9 +51,9 @@
 	<db-entity name="Lesson">
 		<db-attribute name="capacity" type="INTEGER"/>
 		<db-attribute name="course_id" type="INTEGER"/>
+		<db-attribute name="description" type="VARCHAR" length="50"/>
 		<db-attribute name="lesson_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="level" type="VARCHAR" length="5"/>
-		<db-attribute name="name" type="VARCHAR" length="50"/>
 	</db-entity>
 	<db-entity name="LessonDate">
 		<db-attribute name="date_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
@@ -84,8 +82,7 @@
 	<obj-entity name="Guardian" className="edu.ndsu.finalProject.cayenne.persistent.Guardian" dbEntityName="Guardian">
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
-		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
-		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
 		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
 		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
@@ -98,8 +95,7 @@
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="address"/>
 		<obj-attribute name="dateOfBirth" type="java.lang.String" db-attribute-path="date_of_birth"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="email"/>
-		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
-		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="passwordHash" type="java.lang.String" db-attribute-path="passwordHash"/>
 		<obj-attribute name="passwordSalt" type="java.lang.String" db-attribute-path="passwordSalt"/>
 		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="phone"/>
@@ -112,8 +108,8 @@
 	</obj-entity>
 	<obj-entity name="Lesson" className="edu.ndsu.finalProject.cayenne.persistent.Lesson" dbEntityName="Lesson">
 		<obj-attribute name="capacity" type="int" db-attribute-path="capacity"/>
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="description"/>
 		<obj-attribute name="level" type="java.lang.String" db-attribute-path="level"/>
-		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 	</obj-entity>
 	<obj-entity name="LessonDate" className="edu.ndsu.finalProject.cayenne.persistent.LessonDate" dbEntityName="LessonDate">
 		<obj-attribute name="lessonDay" type="java.lang.String" db-attribute-path="lesson_day"/>

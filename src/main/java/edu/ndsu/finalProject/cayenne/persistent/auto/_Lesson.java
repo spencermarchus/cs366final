@@ -21,8 +21,8 @@ public abstract class _Lesson extends CayenneDataObject {
     public static final String LESSON_ID_PK_COLUMN = "lesson_id";
 
     public static final Property<Integer> CAPACITY = Property.create("capacity", Integer.class);
+    public static final Property<String> DESCRIPTION = Property.create("description", String.class);
     public static final Property<String> LEVEL = Property.create("level", String.class);
-    public static final Property<String> NAME = Property.create("name", String.class);
     public static final Property<Course> COURSE = Property.create("course", Course.class);
     public static final Property<List<LessonDate>> LESSON_DATES = Property.create("lessonDates", List.class);
 
@@ -34,18 +34,18 @@ public abstract class _Lesson extends CayenneDataObject {
         return (value != null) ? (Integer) value : 0;
     }
 
+    public void setDescription(String description) {
+        writeProperty("description", description);
+    }
+    public String getDescription() {
+        return (String)readProperty("description");
+    }
+
     public void setLevel(String level) {
         writeProperty("level", level);
     }
     public String getLevel() {
         return (String)readProperty("level");
-    }
-
-    public void setName(String name) {
-        writeProperty("name", name);
-    }
-    public String getName() {
-        return (String)readProperty("name");
     }
 
     public void setCourse(Course course) {

@@ -29,20 +29,15 @@ public class AddInstructor {
 	@Property
 	private SelectModel selectModel;
 	
-
-
 	void setupRender() {
 		instructor = db.getNewInstructor();
-		
 	}
 
 	void onValidateFromAddForm() {
-		if(instructor.getFName() == null || instructor.getFName().trim().isEmpty()) {
-			addForm.recordError("You must specify a first name for the instructor.");
+		if(instructor.getName() == null || instructor.getName().trim().isEmpty()) {
+			addForm.recordError("You must specify a name for the instructor.");
 		}
-		if(instructor.getLName() == null || instructor.getLName().trim().isEmpty()) {
-			addForm.recordError("You must specify a last name for the instructor.");
-		}
+		
 		if(instructor.getAddress() == null || instructor.getAddress().trim().isEmpty()) {
 			addForm.recordError("You must specify an address for the instructor.");
 		}
@@ -58,6 +53,7 @@ public class AddInstructor {
 		if(instructor.getWage() == 0.0f) {
 			addForm.recordError("You must specify a wage for the instructor.");
 		}
+		
 		// Only save changes to the database if there were no errors
 		if(!addForm.getHasErrors()) {
 			instructor.setPassword(tempPassword);

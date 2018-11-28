@@ -17,12 +17,21 @@ public interface DatabaseService {
 	List<InstructorWorking> getAllShifts();
 	List<Lesson> getAllLessons();
 	List<LessonDate> getAllLessonDates();
+	List<Guardianship> getAllGuardianships();
 	List<InstructorWorking> getAllInstructorWorkings();
 	LessonDate getLessonDateByPK(ObjectContext context, int PK);
 	Instructor getInstructorByPK(ObjectContext context, int PK);
+	Student getStudentByPK(ObjectContext context, int PK);
 	List<LessonDate> getLessonDatesByInstructor(Instructor i);
+	List<Student> getStudentsByGuardian(Guardian g);
 	Course getNewCourse();
 	void updateCourse(Course c);
 	Instructor getNewInstructor();
+	InstructorWorking getNewInstructorWorking();
 	void updateInstructor(Instructor i);
+	List<Instructor> getInstructorsByLessonDate(LessonDate ld);
+	Instructor getInstructorForName(ObjectContext context, String name);
+	LessonDate getLessonDateByToString(ObjectContext context, String name);
+	List<String> getAllLessonDateStrings();
+	List<String> getAllInstructorNames();
 }

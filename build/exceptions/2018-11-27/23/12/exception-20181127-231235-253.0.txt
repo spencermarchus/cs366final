@@ -1,0 +1,172 @@
+EXCEPTION STACK:
+
+
+  Exception: java.lang.RuntimeException
+    Message: Exception assembling root component of page supervisors/AddInstructorShift: Exception assembling embedded component 'lessonDateSelect' (of type org.apache.tapestry5.corelib.components.Select, within supervisors/AddInstructorShift): Component supervisors/AddInstructorShift already contains a child component with id 'lessonDateSelect'. Embedded component ids must be unique (excluding case, which is ignored).
+
+  Exception: org.apache.tapestry5.ioc.internal.OperationException
+    Message: Exception assembling embedded component 'lessonDateSelect' (of type org.apache.tapestry5.corelib.components.Select, within supervisors/AddInstructorShift): Component supervisors/AddInstructorShift already contains a child component with id 'lessonDateSelect'. Embedded component ids must be unique (excluding case, which is ignored).
+   location: classpath:edu/ndsu/finalProject/pages/supervisors/AddInstructorShift.tml, line 22
+      trace: Handling page render request for page supervisors/AddInstructorShift
+             Constructing instance of page class edu.ndsu.finalProject.pages.supervisors.AddInstructorShift
+             Assembling root component for page supervisors/AddInstructorShift
+             Assembling component supervisors/AddInstructorShift:lessondateselect (org.apache.tapestry5.corelib.components.Select)
+
+  Exception: org.apache.tapestry5.ioc.internal.util.TapestryException
+    Message: Exception assembling embedded component 'lessonDateSelect' (of type org.apache.tapestry5.corelib.components.Select, within supervisors/AddInstructorShift): Component supervisors/AddInstructorShift already contains a child component with id 'lessonDateSelect'. Embedded component ids must be unique (excluding case, which is ignored).
+   location: classpath:edu/ndsu/finalProject/pages/supervisors/AddInstructorShift.tml, line 22
+
+  Exception: org.apache.tapestry5.ioc.internal.util.TapestryException
+    Message: Component supervisors/AddInstructorShift declared original child component with id 'lessonDateSelect' in edu/ndsu/finalProject/pages/supervisors/AddInstructorShift.tml on line 19.
+   location: classpath:edu/ndsu/finalProject/pages/supervisors/AddInstructorShift.tml, line 19
+
+  Stack trace:
+
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.addEmbeddedElement(ComponentPageElementImpl.java:664)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.newChild(ComponentPageElementImpl.java:637)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl$2.run(ComponentAssemblerImpl.java:168)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.run(OperationTrackerImpl.java:56)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.run(PerThreadOperationTracker.java:60)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.run(RegistryImpl.java:1254)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.assembleEmbeddedComponent(ComponentAssemblerImpl.java:158)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$12.execute(PageLoaderImpl.java:963)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.runActions(ComponentAssemblerImpl.java:229)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.performAssembleRootComponent(ComponentAssemblerImpl.java:105)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.access$000(ComponentAssemblerImpl.java:37)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl$1.invoke(ComponentAssemblerImpl.java:81)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl$1.invoke(ComponentAssemblerImpl.java:78)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.assembleRootComponent(ComponentAssemblerImpl.java:76)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$3.invoke(PageLoaderImpl.java:197)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$3.invoke(PageLoaderImpl.java:190)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl.loadPage(PageLoaderImpl.java:189)
+  - $PageLoader_1922ebda3c459.loadPage(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageSourceImpl.getPage(PageSourceImpl.java:104)
+  - $PageSource_1922ebda3c458.getPage(Unknown Source)
+  - org.apache.tapestry5.internal.services.RequestPageCacheImpl.get(RequestPageCacheImpl.java:86)
+  - $RequestPageCache_1922ebda3c457.get(Unknown Source)
+  - $RequestPageCache_1922ebda3c452.get(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderRequestHandlerImpl.handle(PageRenderRequestHandlerImpl.java:56)
+  - org.apache.tapestry5.modules.TapestryModule$34.handle(TapestryModule.java:1974)
+  - $PageRenderRequestHandler_1922ebda3c456.handle(Unknown Source)
+  - $PageRenderRequestHandler_1922ebda3c450.handle(Unknown Source)
+  - org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator.handlePageRender(ComponentRequestHandlerTerminator.java:48)
+  - org.apache.tapestry5.internal.services.DeferredResponseRenderer.handlePageRender(DeferredResponseRenderer.java:52)
+  - $ComponentRequestHandler_1922ebda3c451.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.services.InitializeActivePageName.handlePageRender(InitializeActivePageName.java:47)
+  - $ComponentRequestHandler_1922ebda3c451.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker$2.run(RequestOperationTracker.java:73)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.run(OperationTrackerImpl.java:56)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.run(PerThreadOperationTracker.java:60)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.run(RegistryImpl.java:1254)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker.handlePageRender(RequestOperationTracker.java:66)
+  - $ComponentRequestHandler_1922ebda3c451.handlePageRender(Unknown Source)
+  - org.tynamo.security.SecurityComponentRequestFilter.handlePageRender(SecurityComponentRequestFilter.java:49)
+  - $ComponentRequestFilter_1922ebda3c44e.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_1922ebda3c451.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_1922ebda3c420.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderDispatcher.dispatch(PageRenderDispatcher.java:55)
+  - $Dispatcher_1922ebda3c421.dispatch(Unknown Source)
+  - $Dispatcher_1922ebda3c418.dispatch(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$RequestHandlerTerminator.service(TapestryModule.java:305)
+  - org.apache.tapestry5.internal.services.RequestErrorFilter.service(RequestErrorFilter.java:26)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$3.service(TapestryModule.java:846)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$2.service(TapestryModule.java:836)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.StaticFilesFilter.service(StaticFilesFilter.java:89)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - edu.ndsu.finalProject.services.AppModule$1.service(AppModule.java:131)
+  - $RequestFilter_1922ebda3c414.service(Unknown Source)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:105)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:95)
+  - org.apache.tapestry5.ioc.internal.util.ConcurrentBarrier.withRead(ConcurrentBarrier.java:83)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter.service(CheckForUpdatesFilter.java:119)
+  - $RequestHandler_1922ebda3c419.service(Unknown Source)
+  - $RequestHandler_1922ebda3c3fc.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$HttpServletRequestHandlerTerminator.service(TapestryModule.java:256)
+  - org.apache.tapestry5.internal.gzip.GZipFilter.service(GZipFilter.java:59)
+  - $HttpServletRequestHandler_1922ebda3c3fe.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.IgnoredPathsFilter.service(IgnoredPathsFilter.java:62)
+  - $HttpServletRequestFilter_1922ebda3c3f8.service(Unknown Source)
+  - $HttpServletRequestHandler_1922ebda3c3fe.service(Unknown Source)
+  - org.tynamo.security.services.impl.SecurityConfiguration.service(SecurityConfiguration.java:69)
+  - $HttpServletRequestFilter_1922ebda3c3fb.service(Unknown Source)
+  - $HttpServletRequestHandler_1922ebda3c3fe.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$1.service(TapestryModule.java:796)
+  - $HttpServletRequestHandler_1922ebda3c3fe.service(Unknown Source)
+  - $HttpServletRequestHandler_1922ebda3c3f7.service(Unknown Source)
+  - org.apache.tapestry5.TapestryFilter.doFilter(TapestryFilter.java:166)
+  - org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1148)
+  - org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:387)
+  - org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+  - org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+  - org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+  - org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:417)
+  - org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+  - org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+  - org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+  - org.mortbay.jetty.Server.handle(Server.java:324)
+  - org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:535)
+  - org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:865)
+  - org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:539)
+  - org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+  - org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+  - org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+  - org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:520)
+
+REQUEST:
+
+Basic Information:
+
+                contextPath: /finalProject
+                     method: GET
+                       path: /supervisors/addinstructorshift
+                     locale: en_US
+                 serverName: localhost
+                 remoteHost: 127.0.0.1
+
+Headers:
+
+                     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+            Accept-Encoding: gzip, deflate, br
+            Accept-Language: en-US,en;q=0.9
+              Cache-Control: max-age=0
+                 Connection: keep-alive
+                     Cookie: shiroSavedRequest=/finalProject/supervisors/allshifts; JSESSIONID=p8ex24bjqf0l
+                        DNT: 1
+                       Host: localhost:8080
+  Upgrade-Insecure-Requests: 1
+                 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
+
+SYSTEM INFORMATION:
+
+Memory:
+      217,963,016 bytes free
+      332,922,880 bytes total
+    3,806,855,168 bytes max
+
+16 Threads:
+                                                           Reference Handler WAITING, daemon, priority 10
+                                                                   Finalizer WAITING, daemon, priority 8
+                                                           Signal Dispatcher RUNNABLE, daemon, priority 9
+                                                             Attach Listener RUNNABLE, daemon
+                                                                        main WAITING
+*                                                  691096777@qtp-756637412-0 RUNNABLE
+  1312348533@qtp-756637412-1 - Acceptor0 SelectChannelConnector@0.0.0.0:8080 RUNNABLE
+                                                                     Timer-0 TIMED_WAITING, daemon
+                                                     cayenne-edt-400218237-0 TIMED_WAITING, daemon
+                                                     cayenne-edt-400218237-1 TIMED_WAITING, daemon
+                                                     cayenne-edt-400218237-2 TIMED_WAITING, daemon
+                                                     cayenne-edt-400218237-3 TIMED_WAITING, daemon
+                                                     cayenne-edt-400218237-4 TIMED_WAITING, daemon
+                                                                     Timer-1 WAITING, daemon
+                                         PoolingDataSourceManager-2136507022 TIMED_WAITING, daemon
+                                                        derby.rawStoreDaemon TIMED_WAITING, daemon

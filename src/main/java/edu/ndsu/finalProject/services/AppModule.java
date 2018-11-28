@@ -14,6 +14,8 @@ import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.services.ApplicationDefaults;
+import org.apache.tapestry5.ioc.services.Coercion;
+import org.apache.tapestry5.ioc.services.CoercionTuple;
 import org.apache.tapestry5.ioc.services.SymbolProvider;
 import org.apache.tapestry5.services.*;
 import org.apache.tapestry5.services.javascript.JavaScriptStack;
@@ -32,7 +34,7 @@ public class AppModule
 	public static void bind(ServiceBinder binder)
     {
     	binder.bind(CayenneService.class, CayenneServiceImpl.class); 
-
+    	 binder.bind(SelectIdModelFactory.class, SelectIdModelFactoryImpl.class);
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
@@ -51,6 +53,7 @@ public class AppModule
     	}
 
 
+   
     public static void contributeFactoryDefaults(
         MappedConfiguration<String, Object> configuration)
     {

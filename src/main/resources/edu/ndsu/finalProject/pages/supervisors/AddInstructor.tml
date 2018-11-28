@@ -7,10 +7,9 @@
     <div>
   		<t:form t:id="addForm">
 	  		<t:errors />  
-	  		<t:label for="FirstName" />
-	  		<t:textfield t:id="FirstName" pattern="[A-Za-z]+" maxlength="20" title="Only letters A-Z" value="instructor.FName"/> 
-	  		<t:label for="LastName" />
-	  		<t:textfield t:id="LastName" pattern="[A-Za-z]+" maxlength="20" title="Only letters A-Z" value="instructor.LName"/>
+	  		
+	  		<t:label for="Name" />
+	  		<t:textfield t:id="Name" pattern="[A-Za-z ]+" maxlength="20" title="Only letters A-Z" value="instructor.name"/>
 	  		<t:label for="address" />
 	  		<t:textfield t:id="address" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="100" title="No special characters" value="instructor.address"/>
 	  		<t:label for="email" />
@@ -27,7 +26,6 @@
 	  		<t:checkbox t:id="isSupervisor" value="instructor.supervisor"/> <br/>
 	  		
 			<br />
-			
 			
 	  		<t:submit value="Save" />&nbsp;
 	  		<t:pagelink page="supervisors/SupervisorPage" class="btn btn-default">Cancel</t:pagelink>

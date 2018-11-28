@@ -34,8 +34,7 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		is.setSupervisor(true);
 		is.setDateOfBirth("10/12/1997");
 		is.setPhone("7014258830");
-		is.setFName("Spencer");
-		is.setLName("Marchus");
+		is.setName("Spencer Marchus");
 		is.setWage((float)12.00);		
 		context.commitChanges();
 		
@@ -48,15 +47,13 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		i.setSupervisor(false);
 		i.setDateOfBirth("10/12/1996");
 		i.setPhone("7014258830");
-		i.setFName("Marchus");
-		i.setLName("Spencer");
+		i.setName("Marchus Spencer");
 		i.setWage((float)10.00);
 		context.commitChanges();
 		
 		//create a guardian
 		Guardian g = userAccountService.createNewGuardian(context);
-		g.setFName("Sarah");
-		g.setLName("Marchus");
+		g.setName("Sarah Marchus");
 		g.setAddress("123 1st St\nBismarck, ND\n58501");
 		g.setEmail("smarchus@gmail.com");
 		g.setPhone("7015872545");
@@ -84,7 +81,7 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		Lesson l = userAccountService.createNewLesson(context);
 		l.setCapacity(32);
 		l.setLevel("red");
-		l.setName("M-F Red Level 9AM June 3-7");
+		l.setDescription("M-F Red Level 9AM June 3-7");
 		l.setCourse(c);
 		
 		context.commitChanges();
