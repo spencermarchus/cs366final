@@ -1,4 +1,4 @@
-<html t:type="layout" title="View Artist"
+<html t:type="layout" title="View Guardian"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
       xmlns:p="tapestry:parameter">
 
@@ -14,7 +14,10 @@
         <p>Name:  ${guardian.name}</p>
         <br/>
         <h4>My Students</h4>
-        <t:grid source="students" row="student" include="name">
+        <t:grid source="students" row="student" include="name" add="action">
+        	<p:actionCell>
+        		<t:pagelink context="student.pk" page="guardians/ViewStudent" href="#">View Details</t:pagelink>
+        	</p:actionCell>
         </t:grid>
         
 		

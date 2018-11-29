@@ -18,12 +18,15 @@ public interface DatabaseService {
 	List<Lesson> getAllLessons();
 	List<LessonDate> getAllLessonDates();
 	List<Guardianship> getAllGuardianships();
+	List<Enrollment> getAllEnrollments();
 	List<InstructorWorking> getAllInstructorWorkings();
 	LessonDate getLessonDateByPK(ObjectContext context, int PK);
 	Instructor getInstructorByPK(ObjectContext context, int PK);
 	Student getStudentByPK(ObjectContext context, int PK);
+	Lesson getLessonByPK(ObjectContext context, int PK);
 	List<LessonDate> getLessonDatesByInstructor(Instructor i);
 	List<Student> getStudentsByGuardian(Guardian g);
+	List<Lesson> getLessonsByStudent(Student s);
 	Course getNewCourse();
 	void updateCourse(Course c);
 	void updateStudent(Student s);

@@ -5,11 +5,12 @@
     <div class="row">
         <div class="span12">
              <p><h3>Instructor Page</h3></p>
-            <t:pagelink class="btn btn-default" page="instructors/MyShifts">My Shifts&raquo;</t:pagelink>
-			<br/> <br/> 
-			
+            <p><t:pagelink class="btn btn-default" page="instructors/MyShifts">My Shifts&raquo;</t:pagelink> </p>
+						
             <p><t:pagelink class="btn btn-default" page="instructors/ChangePassword">Change Password&raquo;</t:pagelink></p>
-			<br/> <br/>
+			
+			<p><t:pagelink class="btn btn-default" page="instructors/ViewAllLessons">View All Lessons&raquo;</t:pagelink></p>
+			<br/> 
 			<t:pagelink page="Index" class="btn btn-primary"> Return to home</t:pagelink>
         </div>
     </div>

@@ -58,6 +58,24 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return null;
 	}
 	
+	//get lessons that a student is enrolled in
+	public List<Lesson> getLessonsByStudent(Student s)
+	{
+		List<Enrollment> allEnrollments = getAllEnrollments();
+		List<Lesson> mylessons = new ArrayList<Lesson>();
+		
+		for(Enrollment e : allEnrollments)
+		{
+			if(e.getStudentId() == s.getPK())
+			{
+				mylessons.add(this.getLessonByPK(null, e.getLessonId()));
+			}
+		}
+		
+		return mylessons;
+		
+	}
+	
 	public boolean shiftExists(InstructorWorking test)
 	{
 		List<InstructorWorking> allShifts = this.getAllInstructorWorkings();
@@ -107,6 +125,10 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return ObjectSelect.query(Instructor.class).select(cayenneService.newContext());
 	}
 	
+	public List<Enrollment> getAllEnrollments() {
+		return ObjectSelect.query(Enrollment.class).select(cayenneService.newContext());
+	}
+	
 	public List<InstructorWorking> getAllInstructorWorkings() {
 		return ObjectSelect.query(InstructorWorking.class).select(cayenneService.newContext());
 	}
@@ -146,6 +168,15 @@ public class DatabaseServiceImpl implements DatabaseService {
 		}
 
 		return (LessonDate) Cayenne.objectForPK(context, LessonDate.class, PK);
+	}
+	
+	public Lesson getLessonByPK(ObjectContext context, int PK)
+	{
+		if(context == null) {
+			context = cayenneService.newContext();
+		}
+
+		return (Lesson) Cayenne.objectForPK(context, Lesson.class, PK);
 	}
 	
 	//returns all future lesson dates that the instructor is assigned, including all lessons worked in the last 24 hours

@@ -1,0 +1,21 @@
+<html t:type="layout" title="Lesson Date Details"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <h4>Below is a summary of the lesson on ${lessonDate.lessonDay}.</h4>
+        </div>
+    </div>
+
+    <div class="eg">
+    	
+        <p>Lesson Day:  ${lessonDate.lessonDay}</p>
+        <p>Lesson Time:  ${lessonDate.lessonTime}</p>
+        <p>Location: ${courseLocation}</p><br/>
+        		
+    </div>
+    
+    <t:pagelink page="guardians/GuardianLessonView" href="#">Return</t:pagelink>
+    
+</html>
