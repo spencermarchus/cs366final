@@ -1,7 +1,5 @@
 package edu.ndsu.finalProject.pages.supervisors;
 
-
-
 import javax.inject.Inject;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;

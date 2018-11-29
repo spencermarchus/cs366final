@@ -63,8 +63,7 @@
 	</db-entity>
 	<db-entity name="Student">
 		<db-attribute name="birth_date" type="VARCHAR" length="10"/>
-		<db-attribute name="f_name" type="VARCHAR" length="20"/>
-		<db-attribute name="l_name" type="VARCHAR" length="20"/>
+		<db-attribute name="name" type="VARCHAR" length="50"/>
 		<db-attribute name="recommended_level" type="VARCHAR" length="10"/>
 		<db-attribute name="student_id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 	</db-entity>
@@ -117,8 +116,7 @@
 	</obj-entity>
 	<obj-entity name="Student" className="edu.ndsu.finalProject.cayenne.persistent.Student" dbEntityName="Student">
 		<obj-attribute name="birthDate" type="java.lang.String" db-attribute-path="birth_date"/>
-		<obj-attribute name="fName" type="java.lang.String" db-attribute-path="f_name"/>
-		<obj-attribute name="lName" type="java.lang.String" db-attribute-path="l_name"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="recommendedLevel" type="java.lang.String" db-attribute-path="recommended_level"/>
 	</obj-entity>
 	<db-relationship name="lessons" source="Course" target="Lesson" toMany="true">

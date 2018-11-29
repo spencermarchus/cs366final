@@ -56,12 +56,12 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		g.setAddress("123 1st St\nBismarck, ND\n58501");
 		g.setEmail("smarchus@gmail.com");
 		g.setPhone("7015872545");
+		g.setPassword("password");
 
 		//student
 		Student s = userAccountService.createNewStudent(context);
 		s.setBirthDate("1/1/2007");
-		s.setFName("Johnny");
-		s.setLName("Marchus");
+		s.setName("Johnny Marchus");
 		context.commitChanges();
 		//student - guardian
 		Guardianship gs = userAccountService.createNewGuardianship(context);

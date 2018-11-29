@@ -1,0 +1,17 @@
+<html t:type="layout" title="My Account"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="eg">
+        Welcome to your Guardian account, ${guardian.name} <br/><br/>
+    	
+        
+            <p><t:pagelink class="btn btn-default" page="guardians/AddStudent">Add Student&raquo;</t:pagelink></p>
+            <p><t:pagelink class="btn btn-default" page="guardians/ViewGuardian">View Information&raquo;</t:pagelink></p>
+            <p><t:pagelink class="btn btn-default" page="guardians/ChangePassword">Change Password&raquo;</t:pagelink></p>
+    </div>
+
+    <br/>
+    <t:pagelink page="Index" class="btn btn-primary">Return to home</t:pagelink>
+    
+</html>

@@ -38,12 +38,16 @@
 			<li><t:pagelink page="instructors/InstructorPage">Instructor</t:pagelink></li>
 		</t:security.hasrole>
 		<t:security.hasrole role="guardian">
-			<li><t:pagelink page="GuardianPage">Guardian Page</t:pagelink></li>
+			<li><t:pagelink page="guardians/GuardianPage">Guardian Page</t:pagelink></li>
 		</t:security.hasrole>
 		<t:security.hasrole role="supervisor">
 			<li><t:pagelink page="supervisors/SupervisorPage">Supervisor</t:pagelink></li>
 		</t:security.hasrole>
-            </ul>
+		
+		<t:security.notauthenticated>
+		<li><t:pagelink page="GuardianSignUp">Parent Sign-Up</t:pagelink></li>
+		</t:security.notauthenticated>
+          	</ul>
             <span class="navbar-right">
                 <t:security.notauthenticated>
 					<t:pagelink page="login" class="btn btn-default navbar-btn">Log In</t:pagelink>

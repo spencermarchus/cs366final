@@ -16,8 +16,7 @@ public abstract class _Student extends CayenneDataObject {
     public static final String STUDENT_ID_PK_COLUMN = "student_id";
 
     public static final Property<String> BIRTH_DATE = Property.create("birthDate", String.class);
-    public static final Property<String> F_NAME = Property.create("fName", String.class);
-    public static final Property<String> L_NAME = Property.create("lName", String.class);
+    public static final Property<String> NAME = Property.create("name", String.class);
     public static final Property<String> RECOMMENDED_LEVEL = Property.create("recommendedLevel", String.class);
 
     public void setBirthDate(String birthDate) {
@@ -27,18 +26,11 @@ public abstract class _Student extends CayenneDataObject {
         return (String)readProperty("birthDate");
     }
 
-    public void setFName(String fName) {
-        writeProperty("fName", fName);
+    public void setName(String name) {
+        writeProperty("name", name);
     }
-    public String getFName() {
-        return (String)readProperty("fName");
-    }
-
-    public void setLName(String lName) {
-        writeProperty("lName", lName);
-    }
-    public String getLName() {
-        return (String)readProperty("lName");
+    public String getName() {
+        return (String)readProperty("name");
     }
 
     public void setRecommendedLevel(String recommendedLevel) {

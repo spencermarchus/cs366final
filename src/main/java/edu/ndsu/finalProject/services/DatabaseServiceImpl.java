@@ -212,14 +212,32 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return cayenneService.newContext().newObject(Course.class);
 	}
 	
+	//create new guardian and initialize password salt to hash password with
+	public Guardian getNewGuardian() {
+		Guardian g = cayenneService.newContext().newObject(Guardian.class);
+		g.setPasswordSalt(new SecureRandomNumberGenerator().nextBytes().toHex());
+		return g;
+	}
+	
+	//create new student 
+	public Student getNewStudent() {
+		Student s = cayenneService.newContext().newObject(Student.class);
+		s.setRecommendedLevel("red");
+		return s;
+	}
+		
+	public Guardianship getNewGuardianship() {
+		Guardianship gs = cayenneService.newContext().newObject(Guardianship.class);
+		return gs;
+	}
+	
 	public InstructorWorking getNewInstructorWorking() {
 		return cayenneService.newContext().newObject(InstructorWorking.class);
 	}
 	
-	public void updateCourse(Course c) {
-		c.getObjectContext().commitChanges();
-	}
 	
+	
+	//create new Instructor and initialize password salt to hash password with
 	public Instructor getNewInstructor() {
 		ObjectContext context = cayenneService.newContext();
 		Instructor i = context.newObject(Instructor.class);
@@ -227,8 +245,28 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return i;
 	}
 	
+	//commit changes to instructor in database
 	public void updateInstructor(Instructor i) {
 		i.getObjectContext().commitChanges();
+	}
+	
+	//commit changes to guardianship in database
+		public void updateGuardianship(Guardianship g) {
+			g.getObjectContext().commitChanges();
+		}
+		
+	
+	//commit changes to guardian in database
+	public void updateGuardian(Guardian g) {
+		g.getObjectContext().commitChanges();
+	}
+	
+	public void updateCourse(Course c) {
+		c.getObjectContext().commitChanges();
+	}
+	
+	public void updateStudent(Student s) {
+		s.getObjectContext().commitChanges();
 	}
 	
 	//gets a list of guardians corresponding to a student

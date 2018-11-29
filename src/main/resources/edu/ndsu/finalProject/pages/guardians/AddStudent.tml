@@ -1,0 +1,22 @@
+<html t:type="layout" title="Add Student"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Add Student</h3>
+      
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		<t:label for="name" />
+	  		<t:textfield t:id="name" pattern="[A-Za-z ]+" maxlength="50" title="Only letters A-Z" value="student.name"/> 
+	  		<t:label for="dateOfBirth" />
+	  		<t:textfield t:id="dateOfBirth" pattern="\d{1,2}/\d{1,2}/\d{4}" title="mm/dd/yyyy format. Must contain /." value="student.birthDate"/>
+	  		
+			<br />
+			
+			
+	  		<t:submit value="Save" />&nbsp;
+	  		<t:pagelink page="guardians/GuardianPage" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>

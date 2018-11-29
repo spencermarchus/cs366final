@@ -1,0 +1,25 @@
+<html t:type="layout" title="View Artist"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>Below is a summary of your account.</p>
+        </div>
+    </div>
+
+    <div class="eg">
+    	
+        <p>Email:  ${guardian.email}</p>
+        <p>Name:  ${guardian.name}</p>
+        <br/>
+        <h4>My Students</h4>
+        <t:grid source="students" row="student" include="name">
+        </t:grid>
+        
+		
+    </div>
+    
+    <t:pagelink page="guardians/GuardianPage" href="#">Return to guardian home</t:pagelink>
+    
+</html>

@@ -1,0 +1,201 @@
+EXCEPTION STACK:
+
+
+        Exception: org.apache.tapestry5.ioc.internal.OperationException
+          Message: Exception assembling root component of page ChangePassword: Could not convert 'student.birthDate' into a component parameter binding: Exception generating conduit for expression 'student.birthDate': Class edu.ndsu.finalProject.pages.ChangePassword does not contain a property (or public field) named 'student'.
+            trace: Handling page render request for page ChangePassword
+                   Constructing instance of page class edu.ndsu.finalProject.pages.ChangePassword
+                   Assembling root component for page ChangePassword
+
+        Exception: java.lang.RuntimeException
+          Message: Exception assembling root component of page ChangePassword: Could not convert 'student.birthDate' into a component parameter binding: Exception generating conduit for expression 'student.birthDate': Class edu.ndsu.finalProject.pages.ChangePassword does not contain a property (or public field) named 'student'.
+
+        Exception: org.apache.tapestry5.ioc.internal.util.TapestryException
+          Message: Could not convert 'student.birthDate' into a component parameter binding: Exception generating conduit for expression 'student.birthDate': Class edu.ndsu.finalProject.pages.ChangePassword does not contain a property (or public field) named 'student'.
+         location: classpath:edu/ndsu/finalProject/pages/ChangePassword.tml, line 12
+
+        Exception: org.apache.tapestry5.internal.services.PropertyExpressionException
+          Message: Exception generating conduit for expression 'student.birthDate': Class edu.ndsu.finalProject.pages.ChangePassword does not contain a property (or public field) named 'student'.
+       expression: student.birthDate
+
+        Exception: org.apache.tapestry5.ioc.util.UnknownValueException
+          Message: Class edu.ndsu.finalProject.pages.ChangePassword does not contain a property (or public field) named 'student'.
+  availableValues: AvailableValues[Properties (and public fields): class, componentResources, guardian, instructor, username]
+
+  Stack trace:
+
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.findPropertyAdapter(PropertyConduitSourceImpl.java:1168)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.buildPropertyAccessTerm(PropertyConduitSourceImpl.java:1136)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.buildTerm(PropertyConduitSourceImpl.java:1125)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.buildTerm(PropertyConduitSourceImpl.java:1044)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.analyzeDerefNode(PropertyConduitSourceImpl.java:1037)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.implementNavMethodAndAccessors(PropertyConduitSourceImpl.java:372)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl$PropertyConduitBuilder.transform(PropertyConduitSourceImpl.java:279)
+  - org.apache.tapestry5.plastic.PlasticManager.createProxy(PlasticManager.java:251)
+  - org.apache.tapestry5.plastic.PlasticManager.createProxy(PlasticManager.java:229)
+  - org.apache.tapestry5.ioc.internal.services.PlasticProxyFactoryImpl.createProxy(PlasticProxyFactoryImpl.java:74)
+  - $PlasticProxyFactory_1c747337c2d29.createProxy(Unknown Source)
+  - $PlasticProxyFactory_1c747337c2d28.createProxy(Unknown Source)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl.build(PropertyConduitSourceImpl.java:1461)
+  - org.apache.tapestry5.internal.services.PropertyConduitSourceImpl.create(PropertyConduitSourceImpl.java:1375)
+  - $PropertyConduitSource_1c747337c2d55.create(Unknown Source)
+  - org.apache.tapestry5.internal.bindings.PropBindingFactory.newBinding(PropBindingFactory.java:47)
+  - $BindingFactory_1c747337c2d56.newBinding(Unknown Source)
+  - $BindingFactory_1c747337c2d4d.newBinding(Unknown Source)
+  - org.apache.tapestry5.internal.services.BindingSourceImpl.newBinding(BindingSourceImpl.java:81)
+  - $BindingSource_1c747337c2d1f.newBinding(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageElementFactoryImpl.newBinding(PageElementFactoryImpl.java:180)
+  - $PageElementFactory_1c747337c2d42.newBinding(Unknown Source)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$10.execute(PageLoaderImpl.java:883)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.runActions(ComponentAssemblerImpl.java:229)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.performAssembleRootComponent(ComponentAssemblerImpl.java:105)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.access$000(ComponentAssemblerImpl.java:37)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl$1.invoke(ComponentAssemblerImpl.java:81)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl$1.invoke(ComponentAssemblerImpl.java:78)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.pageload.ComponentAssemblerImpl.assembleRootComponent(ComponentAssemblerImpl.java:76)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$3.invoke(PageLoaderImpl.java:197)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl$3.invoke(PageLoaderImpl.java:190)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.pageload.PageLoaderImpl.loadPage(PageLoaderImpl.java:189)
+  - $PageLoader_1c747337c2d3c.loadPage(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageSourceImpl.getPage(PageSourceImpl.java:104)
+  - $PageSource_1c747337c2d3b.getPage(Unknown Source)
+  - org.apache.tapestry5.internal.services.RequestPageCacheImpl.get(RequestPageCacheImpl.java:86)
+  - $RequestPageCache_1c747337c2d3a.get(Unknown Source)
+  - $RequestPageCache_1c747337c2d31.get(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderRequestHandlerImpl.handle(PageRenderRequestHandlerImpl.java:56)
+  - org.apache.tapestry5.modules.TapestryModule$34.handle(TapestryModule.java:1974)
+  - $PageRenderRequestHandler_1c747337c2d39.handle(Unknown Source)
+  - $PageRenderRequestHandler_1c747337c2d2e.handle(Unknown Source)
+  - org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator.handlePageRender(ComponentRequestHandlerTerminator.java:48)
+  - org.apache.tapestry5.internal.services.DeferredResponseRenderer.handlePageRender(DeferredResponseRenderer.java:52)
+  - $ComponentRequestHandler_1c747337c2d2f.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.services.InitializeActivePageName.handlePageRender(InitializeActivePageName.java:47)
+  - $ComponentRequestHandler_1c747337c2d2f.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker$2.run(RequestOperationTracker.java:73)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.run(OperationTrackerImpl.java:56)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.run(PerThreadOperationTracker.java:60)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.run(RegistryImpl.java:1254)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker.handlePageRender(RequestOperationTracker.java:66)
+  - $ComponentRequestHandler_1c747337c2d2f.handlePageRender(Unknown Source)
+  - org.tynamo.security.SecurityComponentRequestFilter.handlePageRender(SecurityComponentRequestFilter.java:49)
+  - $ComponentRequestFilter_1c747337c2d2c.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_1c747337c2d2f.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_1c747337c2ce8.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderDispatcher.dispatch(PageRenderDispatcher.java:55)
+  - $Dispatcher_1c747337c2ce9.dispatch(Unknown Source)
+  - $Dispatcher_1c747337c2cdf.dispatch(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$RequestHandlerTerminator.service(TapestryModule.java:305)
+  - org.apache.tapestry5.internal.services.RequestErrorFilter.service(RequestErrorFilter.java:26)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$3.service(TapestryModule.java:846)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$2.service(TapestryModule.java:836)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.StaticFilesFilter.service(StaticFilesFilter.java:89)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - edu.ndsu.finalProject.services.AppModule$1.service(AppModule.java:134)
+  - $RequestFilter_1c747337c2cdb.service(Unknown Source)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:105)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:95)
+  - org.apache.tapestry5.ioc.internal.util.ConcurrentBarrier.withRead(ConcurrentBarrier.java:83)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter.service(CheckForUpdatesFilter.java:119)
+  - $RequestHandler_1c747337c2ce0.service(Unknown Source)
+  - $RequestHandler_1c747337c2cc3.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$HttpServletRequestHandlerTerminator.service(TapestryModule.java:256)
+  - org.apache.tapestry5.internal.gzip.GZipFilter.service(GZipFilter.java:59)
+  - $HttpServletRequestHandler_1c747337c2cc5.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.IgnoredPathsFilter.service(IgnoredPathsFilter.java:62)
+  - $HttpServletRequestFilter_1c747337c2cbf.service(Unknown Source)
+  - $HttpServletRequestHandler_1c747337c2cc5.service(Unknown Source)
+  - org.tynamo.security.services.impl.SecurityConfiguration.service(SecurityConfiguration.java:69)
+  - $HttpServletRequestFilter_1c747337c2cc2.service(Unknown Source)
+  - $HttpServletRequestHandler_1c747337c2cc5.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$1.service(TapestryModule.java:796)
+  - $HttpServletRequestHandler_1c747337c2cc5.service(Unknown Source)
+  - $HttpServletRequestHandler_1c747337c2cbe.service(Unknown Source)
+  - org.apache.tapestry5.TapestryFilter.doFilter(TapestryFilter.java:166)
+  - org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1148)
+  - org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:387)
+  - org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+  - org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+  - org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+  - org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:417)
+  - org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+  - org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+  - org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+  - org.mortbay.jetty.Server.handle(Server.java:324)
+  - org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:535)
+  - org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:865)
+  - org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:539)
+  - org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+  - org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+  - org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+  - org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:520)
+
+REQUEST:
+
+Basic Information:
+
+                contextPath: /finalProject
+                      flags: requestedSessionIdValid
+                     method: GET
+                       path: /changepassword
+                     locale: en_US
+                 serverName: localhost
+                 remoteHost: 0:0:0:0:0:0:0:1
+
+Headers:
+
+                     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+            Accept-Encoding: gzip, deflate, br
+            Accept-Language: en-US,en;q=0.9
+              Cache-Control: max-age=0
+                 Connection: keep-alive
+                     Cookie: shiroSavedRequest=/finalProject/guardians/guardian; JSESSIONID=3cfkd95n8v54
+                        DNT: 1
+                       Host: localhost:8080
+                    Referer: http://localhost:8080/finalProject/guardians/guardian
+  Upgrade-Insecure-Requests: 1
+                 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
+
+SESSION:
+
+  org.apache.shiro.subject.support.DefaultSubjectContext_AUTHENTICATED_SESSION_KEY: true
+     org.apache.shiro.subject.support.DefaultSubjectContext_PRINCIPALS_SESSION_KEY: smarchus@gmail.com
+                  org.apache.shiro.web.session.HttpServletSession.HOST_SESSION_KEY: 0:0:0:0:0:0:0:1
+                                      sso:org.apache.tapestry5.alerts.AlertStorage: org.apache.tapestry5.alerts.AlertStorage@45223908
+                                                state:guardians/Guardian::guardian: {<ObjectId:Guardian, guardian_id=200>; committed; [address=>123 1st St
+Bismarck, ND
+58501; phone=>7015872545; name=>Sarah Marchus; passwordSalt=>bdb861723e35ac7b15f4c4fdf8e1baa3; email=>smarchus@gmail.com; passwordHash=>048f2c698f0fc183047a26475b9caac6c66bc2c7e0d6b4fd79c5fd621de73e0a8725b7e434575b5289361130b7bb27f6e6fe8d708ae641cb06e014ca097b68af]}
+
+SYSTEM INFORMATION:
+
+Memory:
+      195,230,864 bytes free
+      352,845,824 bytes total
+    3,806,855,168 bytes max
+
+16 Threads:
+                                                           Reference Handler WAITING, daemon, priority 10
+                                                                   Finalizer WAITING, daemon, priority 8
+                                                           Signal Dispatcher RUNNABLE, daemon, priority 9
+                                                             Attach Listener RUNNABLE, daemon
+                                                                        main WAITING
+  1312348533@qtp-756637412-1 - Acceptor0 SelectChannelConnector@0.0.0.0:8080 RUNNABLE
+                                                                     Timer-0 TIMED_WAITING, daemon
+                                                    cayenne-edt-1983689971-0 TIMED_WAITING, daemon
+                                                    cayenne-edt-1983689971-1 TIMED_WAITING, daemon
+                                                    cayenne-edt-1983689971-2 TIMED_WAITING, daemon
+                                                    cayenne-edt-1983689971-3 TIMED_WAITING, daemon
+                                                    cayenne-edt-1983689971-4 TIMED_WAITING, daemon
+                                                                     Timer-1 WAITING, daemon
+                                         PoolingDataSourceManager-1372939214 TIMED_WAITING, daemon
+*                                                  646376222@qtp-756637412-7 RUNNABLE
+                                                        derby.rawStoreDaemon TIMED_WAITING, daemon

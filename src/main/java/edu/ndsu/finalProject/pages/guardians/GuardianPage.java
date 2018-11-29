@@ -1,4 +1,4 @@
-package edu.ndsu.finalProject.pages;
+package edu.ndsu.finalProject.pages.guardians;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.tapestry5.annotations.Persist;

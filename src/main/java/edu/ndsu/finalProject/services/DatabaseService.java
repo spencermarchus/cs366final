@@ -26,13 +26,19 @@ public interface DatabaseService {
 	List<Student> getStudentsByGuardian(Guardian g);
 	Course getNewCourse();
 	void updateCourse(Course c);
+	void updateStudent(Student s);
 	Instructor getNewInstructor();
 	InstructorWorking getNewInstructorWorking();
+	Guardian getNewGuardian();
+	Guardianship getNewGuardianship();
+	Student getNewStudent();
 	void updateInstructor(Instructor i);
+	void updateGuardianship(Guardianship gs);
 	List<Instructor> getInstructorsByLessonDate(LessonDate ld);
 	Instructor getInstructorForName(ObjectContext context, String name);
 	LessonDate getLessonDateByToString(ObjectContext context, String name);
 	List<String> getAllLessonDateStrings();
 	List<String> getAllInstructorNames();
 	boolean shiftExists(InstructorWorking iw);
+	void updateGuardian(Guardian g);
 }
