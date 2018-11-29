@@ -1,19 +1,10 @@
 package edu.ndsu.finalProject.pages.guardians;
 
-import java.util.List;
-
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.tynamo.security.services.SecurityService;
-
-import edu.ndsu.finalProject.cayenne.persistent.Guardian;
-import edu.ndsu.finalProject.cayenne.persistent.Instructor;
-import edu.ndsu.finalProject.cayenne.persistent.Lesson;
 import edu.ndsu.finalProject.cayenne.persistent.LessonDate;
-import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 import edu.ndsu.finalProject.services.DatabaseService;
 import edu.ndsu.finalProject.services.UserAccountService;
 

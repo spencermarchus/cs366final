@@ -15,7 +15,7 @@ import edu.ndsu.finalProject.cayenne.persistent.UserAccount;
 import edu.ndsu.finalProject.services.DatabaseService;
 import edu.ndsu.finalProject.services.UserAccountService;
 
-@RequiresAuthentication
+@RequiresRoles("instructor")
 public class ViewAllLessons 
 {
 	@Inject
