@@ -12,7 +12,7 @@
         </p>
         <h3>${message:greeting}</h3>
         <p>
-            If you want to sign a student up for lessons please click this button.&nbsp;
+            To sign up for a parent/guardian account and enroll students in lessons, please click this button.&nbsp;
             <t:pagelink class="btn btn-primary" page="GuardianSignUp">Guardian Sign-Up</t:pagelink>
         </p>
         <br/>

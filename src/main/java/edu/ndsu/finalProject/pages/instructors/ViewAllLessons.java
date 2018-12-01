@@ -37,7 +37,7 @@ public class ViewAllLessons
 	
 	void setupRender()
 	{
-		lessons = db.getAllLessons();
+		lessons = db.getAllLessons(null);
 	}
 	
 

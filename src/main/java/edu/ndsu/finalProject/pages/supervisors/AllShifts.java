@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.tapestry5.annotations.Property;
 import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
+import edu.ndsu.finalProject.cayenne.persistent.Shift;
 import edu.ndsu.finalProject.services.DatabaseService;
 
 @RequiresRoles("supervisor")
@@ -15,12 +16,13 @@ public class AllShifts {
 	private DatabaseService db;
 
 	@Property
-	private List<InstructorWorking> shifts; // list for grid
+	private List<Shift> shifts; // list for grid
 
 	@Property
-	private InstructorWorking shift; // row for grid
+	private Shift shift; // row for grid
 
 	void setupRender() {
-		shifts = db.getAllShifts();
+		
+		shifts = db.getAllShifts(null);
 	}
 }

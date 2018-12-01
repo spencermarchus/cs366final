@@ -22,7 +22,7 @@ public class Courses {
 	private Course course; // row for grid
 
 	void setupRender() {
-		courses = db.getAllCourses();
+		courses = db.getAllCourses(null);
 	}
 
 }

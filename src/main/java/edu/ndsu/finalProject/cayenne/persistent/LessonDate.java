@@ -17,6 +17,6 @@ public class LessonDate extends _LessonDate {
     @Override
     public String toString()
     {
-    	return this.getLessonDay()+" "+this.getLessonTime();
+    	return this.getLessonDatetime();
     }
 }

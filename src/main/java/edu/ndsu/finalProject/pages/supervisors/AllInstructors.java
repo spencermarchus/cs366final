@@ -20,6 +20,6 @@ public class AllInstructors {
 	private Instructor instructor; // row for grid
 
 	void setupRender() {
-		instructors = db.getAllInstructors();
+		instructors = db.getAllInstructors(null);
 	}
 }

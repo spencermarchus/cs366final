@@ -58,7 +58,8 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		g.setEmail("smarchus@gmail.com");
 		g.setPhone("7015872545");
 		g.setPassword("password");
-
+		context.commitChanges();
+		
 		//student
 		Student s = userAccountService.createNewStudent(context);
 		s.setBirthDate("1/1/2007");
@@ -67,8 +68,9 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		//student - guardian
 		Guardianship gs = userAccountService.createNewGuardianship(context);
 		//student and guardian set to what we just created above
-		gs.setGuardianId(g.getPK());
-		gs.setStudentId(s.getPK());
+		gs.setGuardian(g);
+		gs.setStudent(s);
+		context.commitChanges();
 		
 		Course c = userAccountService.createNewCourse(context);
 		c.setName("Pebble Creek Golf Course");
@@ -87,38 +89,35 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		context.commitChanges();
 		
 		Enrollment e = userAccountService.createNewEnrollment(context);
-		e.setLessonId(l.getPK());
-		e.setStudentId(s.getPK());
+		e.setLesson(l);
+		e.setStudent(s);
 		context.commitChanges();
 		
 		//create some lesson dates and shifts
 		LessonDate ld = userAccountService.createNewLessonDate(context);
 		ld.setLesson(l);
-		ld.setLessonDay("06/03/2019");
-		ld.setLessonTime("9:00-10:00AM");
+		ld.setLessonDatetime("06/03/2019 9:00-10:00AM");
 		context.commitChanges();
 		
 		LessonDate ld2 = userAccountService.createNewLessonDate(l.getObjectContext());
 		ld2.setLesson(l);
-		ld2.setLessonDay("06/04/2019");
-		ld2.setLessonTime("9:00-10:00AM");
+		ld2.setLessonDatetime("06/04/2019 9:00-10:00AM");
 		context.commitChanges();
 		
 		LessonDate ld3 = userAccountService.createNewLessonDate(l.getObjectContext());
 		ld3.setLesson(l);
-		ld3.setLessonDay("06/05/2019");
-		ld3.setLessonTime("9:00-10:00AM");
+		ld3.setLessonDatetime("06/05/2019 9:00-10:00AM");
 		context.commitChanges();
 		
 		
 		InstructorWorking iw = userAccountService.createNewInstructorWorking(ld.getObjectContext());
-		iw.setInstructorId(is.getPK());
-		iw.setDateId(ld.getPK());
+		iw.setInstructor(is);
+		iw.setDate(ld);
 		ld.getObjectContext().commitChanges();
 		
 		InstructorWorking iw2 = userAccountService.createNewInstructorWorking(ld2.getObjectContext());
-		iw2.setInstructorId(is.getPK());
-		iw2.setDateId(ld2.getPK());
+		iw2.setInstructor(is);
+		iw2.setDate(ld2);
 		iw2.getObjectContext().commitChanges();
 		
 		
@@ -130,8 +129,8 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		c.addToLessons(l);
 		
 		context.commitChanges();
-		
 		*/
+		
 	}
 	
 	@Override
@@ -140,7 +139,6 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		if(principals == null || principals.isEmpty()) {
 			return null;
 		}
-		SimpleAuthorizationInfo authInfo = new SimpleAuthorizationInfo();
 		
 		// The primary principal will be the username when logging in
 		String username = (String) principals.getPrimaryPrincipal();

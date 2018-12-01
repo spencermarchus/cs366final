@@ -32,21 +32,7 @@
                         <t:pagelink page="prop:pageName">${pageName}</t:pagelink>
                     </t:any>
                 </t:loop>
-        <t:security.authenticated>
-		</t:security.authenticated>
-		<t:security.hasrole role="instructor">
-			<li><t:pagelink page="instructors/InstructorPage">Instructor</t:pagelink></li>
-		</t:security.hasrole>
-		<t:security.hasrole role="guardian">
-			<li><t:pagelink page="guardians/GuardianPage">Guardian Page</t:pagelink></li>
-		</t:security.hasrole>
-		<t:security.hasrole role="supervisor">
-			<li><t:pagelink page="supervisors/SupervisorPage">Supervisor</t:pagelink></li>
-		</t:security.hasrole>
-		
-		<t:security.notauthenticated>
-		<li><t:pagelink page="GuardianSignUp">Parent Sign-Up</t:pagelink></li>
-		</t:security.notauthenticated>
+        
           	</ul>
             <span class="navbar-right">
                 <t:security.notauthenticated>

@@ -6,6 +6,7 @@ import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.exp.Property;
 
 import edu.ndsu.finalProject.cayenne.persistent.Course;
+import edu.ndsu.finalProject.cayenne.persistent.Enrollment;
 import edu.ndsu.finalProject.cayenne.persistent.LessonDate;
 
 /**
@@ -24,6 +25,7 @@ public abstract class _Lesson extends CayenneDataObject {
     public static final Property<String> DESCRIPTION = Property.create("description", String.class);
     public static final Property<String> LEVEL = Property.create("level", String.class);
     public static final Property<Course> COURSE = Property.create("course", Course.class);
+    public static final Property<List<Enrollment>> ENROLLMENTS = Property.create("enrollments", List.class);
     public static final Property<List<LessonDate>> LESSON_DATES = Property.create("lessonDates", List.class);
 
     public void setCapacity(int capacity) {
@@ -54,6 +56,18 @@ public abstract class _Lesson extends CayenneDataObject {
 
     public Course getCourse() {
         return (Course)readProperty("course");
+    }
+
+
+    public void addToEnrollments(Enrollment obj) {
+        addToManyTarget("enrollments", obj, true);
+    }
+    public void removeFromEnrollments(Enrollment obj) {
+        removeToManyTarget("enrollments", obj, true);
+    }
+    @SuppressWarnings("unchecked")
+    public List<Enrollment> getEnrollments() {
+        return (List<Enrollment>)readProperty("enrollments");
     }
 
 

@@ -32,6 +32,12 @@ public class InstructorPage
 		String username = securityService.getSubject().getPrincipal().toString();
 		inst = userAccountService.getInstructorByEmail(username);
 	}
+	
+	public String getUnauthorizedURL() {
+	    return "Index";
+	  }
+	
+	
 }
 
 

@@ -1,20 +1,14 @@
 package edu.ndsu.finalProject.pages.instructors;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
-import org.apache.cayenne.ObjectContext;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.tynamo.security.services.SecurityService;
-
 import edu.ndsu.finalProject.cayenne.persistent.Instructor;
 import edu.ndsu.finalProject.cayenne.persistent.InstructorWorking;
 import edu.ndsu.finalProject.cayenne.persistent.LessonDate;
-import edu.ndsu.finalProject.services.CayenneService;
+import edu.ndsu.finalProject.cayenne.persistent.Shift;
 import edu.ndsu.finalProject.services.DatabaseService;
 import edu.ndsu.finalProject.services.UserAccountService;
 
@@ -22,8 +16,7 @@ import edu.ndsu.finalProject.services.UserAccountService;
 public class MyShifts {
 	@Inject
 	private DatabaseService db;
-	@Inject
-	private CayenneService cayenneService;
+	
 	@Inject
 	private UserAccountService uas;
 	
@@ -36,19 +29,13 @@ public class MyShifts {
 	
 	@Property
 	private int instructorPK; // activation context
+		
+	@Property
+	private List<Shift> shifts;
 	
 	@Property
-	private List<InstructorWorking> shifts;
+	private Shift shift;
 	
-	@Property
-	private List<LessonDate> lessonsWorking;
-	
-	@Property
-	private InstructorWorking shift;
-	
-	@Property
-	private LessonDate lessonWorking;
-
 	@Property
 	private String username;
 	
@@ -62,26 +49,12 @@ public class MyShifts {
 
 	public void setupRender() {
 		
-		
 		username = securityService.getSubject().getPrincipal().toString();
 		instructor = uas.getInstructorByEmail(username);
-		
-		ObjectContext context = instructor.getObjectContext();
-		InstructorWorking iw = uas.createNewInstructorWorking(context);
-		LessonDate ld = uas.createNewLessonDate(context);
-		ld.setLessonDay("06/10/2019");
-		ld.setLessonTime("09:00-10:00AM");
-		
-		context.commitChanges();
-		
-		iw.setInstructorId(instructor.getPK());
-		iw.setDateId(ld.getPK());
-		context.commitChanges();
-		
+				
 		if(instructor == null)
 			System.out.println("INSTRUCTOR NULL");
-		shifts = null;
-		
+				
 		/*
 		List<LessonDate> allDates = db.getAllLessonDates();
 		List<LessonDate> shifts = new ArrayList<LessonDate>;
@@ -92,7 +65,7 @@ public class MyShifts {
 		}
 		*/
 		
-		lessonsWorking = db.getLessonDatesByInstructor(instructor);
+		shifts = db.getShiftsByInstructor(instructor);
 		
 	}
 }

@@ -11,6 +11,17 @@ public class Course extends _Course {
     	{
     		return (Integer) getObjectId().getIdSnapshot().get(COURSE_ID_PK_COLUMN);
     	}
+    	
     	return null; 
+    }
+    
+    public boolean equals(Course c)
+    {
+    	return true;
+    }
+    
+    public String toString()
+    {
+    	return this.getName();
     }
 }

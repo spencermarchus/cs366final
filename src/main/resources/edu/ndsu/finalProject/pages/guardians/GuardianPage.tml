@@ -8,7 +8,7 @@
         
             <p><t:pagelink class="btn btn-default" page="guardians/AddStudent">Add Student&raquo;</t:pagelink></p>
             <p><t:pagelink class="btn btn-default" page="guardians/ViewGuardian">View Information&raquo;</t:pagelink></p>
-            <p><t:pagelink class="btn btn-default" page="guardians/ChangePassword">Change Password&raquo;</t:pagelink></p><p><t:pagelink class="btn btn-default" page="guardians/ChangePassword">Change Password&raquo;</t:pagelink></p>
+            <p><t:pagelink class="btn btn-default" page="guardians/ChangePassword">Change Password&raquo;</t:pagelink></p>
 
             
     </div>

@@ -61,7 +61,7 @@ public class AddInstructor {
 		}
 	}
 	
-	Object onSubmit() {
+	Object onSuccess() {
 		return "supervisors/AllInstructors";
 	}
 }

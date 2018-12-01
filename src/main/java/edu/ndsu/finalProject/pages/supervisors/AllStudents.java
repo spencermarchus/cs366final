@@ -23,6 +23,6 @@ public class AllStudents {
 	private Student student; // row for grid
 
 	void setupRender() {
-		students = db.getAllStudents();
+		students = db.getAllStudents(null);
 	}
 }

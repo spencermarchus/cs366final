@@ -76,8 +76,8 @@ public class AddInstructorShift {
 			{
 				
 				InstructorWorking iw = db.getNewInstructorWorking();
-				iw.setInstructorId(db.getInstructorForName(null, s).getPK());
-				iw.setDateId(db.getLessonDateByToString(null, selectedLessonDate).getPK());
+				iw.setInstructor(db.getInstructorForName(iw.getObjectContext(), s));
+				iw.setDate(db.getLessonDateByToString(iw.getObjectContext(), selectedLessonDate));
 				
 				if(!(db.shiftExists(iw)))
 					iw.getObjectContext().commitChanges();

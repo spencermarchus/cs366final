@@ -67,8 +67,8 @@ public class AddStudent {
 			db.updateStudent(student);
 			
 			Guardianship gs = db.getNewGuardianship();
-			gs.setStudentId(student.getPK());
-			gs.setGuardianId(guardian.getPK());
+			gs.setStudent(student);
+			gs.setGuardian(guardian);
 			db.updateGuardianship(gs);
 		}
 	}

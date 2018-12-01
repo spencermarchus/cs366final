@@ -14,7 +14,7 @@
         <p>Level:  ${lesson.level}</p>
         <p>Location: ${courseLocation}</p>
         <h4>Lesson Dates</h4>
-        <t:grid source="lesson.lessonDates" row="lessonDate" include="lessonDay, lessonTime" add="action">
+        <t:grid source="lesson.lessonDates" row="lessonDate" include="lessonDatetime" add="action">
         	<p:actionCell>
         		<t:pagelink context="lessonDate.pk" page="instructors/ViewLessonDate" href="#">View Details</t:pagelink>
         	</p:actionCell>

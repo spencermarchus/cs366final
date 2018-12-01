@@ -27,6 +27,6 @@ public class AllGuardians {
 	private Guardian guardian; // row for grid
 
 	void setupRender() {
-		guardians = db.getAllGuardians();
+		guardians = db.getAllGuardians(null);
 	}
 }
