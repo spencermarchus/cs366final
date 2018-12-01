@@ -25,6 +25,7 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		this.userAccountService = uas;
 		this.logger = LoggerFactory.getLogger(this.getClass());
 		
+		/*
 	    //create supervisor employee	
 		ObjectContext context = cayenneService.newContext();
 		Instructor is = userAccountService.createNewInstructor(context);
@@ -130,6 +131,7 @@ public class LocalSecurityRealm extends AuthorizingRealm {
 		
 		context.commitChanges();
 		
+		*/
 	}
 	
 	@Override

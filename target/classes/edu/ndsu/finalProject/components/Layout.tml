@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <t:pagelink page="index" class="navbar-brand">Home</t:pagelink>
+           <t:pagelink page="Index"><img src="${asset:context:images/smallLogo.png}" title="Home" /></t:pagelink>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
