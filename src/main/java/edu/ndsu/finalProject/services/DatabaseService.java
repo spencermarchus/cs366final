@@ -30,6 +30,8 @@ public interface DatabaseService {
 	List<Lesson> getLessonsByStudent(Student s);
 	List<Shift> getShiftsByInstructor(Instructor i);
 	Course getNewCourse();
+	LessonDate getNewLessonDate(ObjectContext context);
+	Enrollment getNewEnrollment(ObjectContext context);
 	void updateCourse(Course c);
 	void updateStudent(Student s);
 	void updateLesson(Lesson l);
@@ -49,5 +51,9 @@ public interface DatabaseService {
 	List<String> getAllInstructorNames();
 	List<String> getAllCourseNames();
 	boolean shiftExists(InstructorWorking iw);
+	boolean alreadyEnrolled(Enrollment e);
 	void updateGuardian(Guardian g);
+	void updateEnrollment(Enrollment e);
+	Integer getNumEnrollmentsForLesson(Lesson l);
+	
 }

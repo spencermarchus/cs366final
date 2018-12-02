@@ -22,7 +22,7 @@
         
 		
     </div>
-    
-    <t:pagelink page="instructors/ViewAllLessons" href="#">Return</t:pagelink>
+    <t:pagelink context="lesson.pk" class="btn btn-primary" page="supervisors/AddLessonDate" href="#">Add Lesson Date to Lesson</t:pagelink>
+    <br/><br/><t:pagelink class="btn btn-primary" page="instructors/ViewAllLessons" href="#">Return</t:pagelink>
     
 </html>

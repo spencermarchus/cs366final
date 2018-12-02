@@ -13,4 +13,10 @@ public class Enrollment extends _Enrollment {
     	}
     	return null; 
     }
+    
+    public boolean equals(Enrollment e)
+    {
+    	return (e.getLesson().getPK() == this.getLesson().getPK()
+    		&& e.getStudent().getPK() == this.getStudent().getPK());
+    }
 }

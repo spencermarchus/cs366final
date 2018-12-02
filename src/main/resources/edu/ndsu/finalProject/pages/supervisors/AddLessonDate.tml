@@ -1,0 +1,22 @@
+<html t:type="layout" title="Add Lesson Date"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Add Lesson Date to Lesson</h3>
+      
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		
+	  		<t:label for="date" />
+	  		<t:textfield t:id="date" pattern="\d{2}/\d{2}/\d{4}" maxlength="10" title="Date format must be MM/DD/YYYY" value="date"/>
+	  		<p>Note: date must have format MM/DD/YYYY</p>
+	  		<t:label for="time" />
+	  		<t:textfield t:id="time" pattern="{2,2}:{2,2}-{2,2}:{2,2}{2,2}" title="Time format should be 00:00-00:00PM" value="time"/>
+	  		<p>Note: time must have format 00:00-00:00PM</p>
+	  		<br/>			
+	  		<t:submit value="Save" />&nbsp;
+	  		<t:pagelink context="lesson.pk" page="instructors/ViewLesson" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>

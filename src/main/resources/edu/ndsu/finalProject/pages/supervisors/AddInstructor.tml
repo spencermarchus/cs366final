@@ -17,7 +17,7 @@
 	  		<t:label for="phone" />
 	  		<t:textfield t:id="phone" pattern="[0-9]{10}" title="Phone number with only numbers" value="instructor.phone"/>
 	  		<t:label for="dateOfBirth" />
-	  		<t:textfield t:id="dateOfBirth" pattern="\d{1,2}/\d{1,2}/\d{4}" title="mm/dd/yyyy format. Must contain /." value="instructor.dateOfBirth"/>
+	  		<t:textfield t:id="dateOfBirth" pattern="\d{2}/\d{2}/\d{4}" title="mm/dd/yyyy format. Must contain /." value="instructor.dateOfBirth"/>
 	  		<t:label for="wage" />
 	  		<t:textfield t:id="wage" step="0.01" min="7.25" type="number" value="instructor.wage"/>
 	  		<t:label for="tempPassword" />

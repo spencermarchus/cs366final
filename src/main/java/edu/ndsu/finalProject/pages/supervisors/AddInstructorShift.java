@@ -98,10 +98,7 @@ public class AddInstructorShift {
     }
 	
 	Object onSuccess() {
-		if(!addForm.getHasErrors())
-			return "supervisors/AllShifts";
-		
-		return this;
+		return "supervisors/AllShifts";
 	}
 	
 	

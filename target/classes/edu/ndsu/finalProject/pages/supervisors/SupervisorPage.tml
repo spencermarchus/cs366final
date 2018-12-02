@@ -16,6 +16,7 @@
 			<p><t:pagelink class="btn btn-default" page="supervisors/AllStudents">View all Students&raquo;</t:pagelink></p>
 			<p><t:pagelink class="btn btn-default" page="instructors/ViewAllLessons">View all Lessons&raquo;</t:pagelink></p>
 			<p><t:pagelink class="btn btn-default" page="supervisors/AddLesson">Add Lesson&raquo;</t:pagelink></p>
+			
 	<div class="row">
     <p><h4>Guardians</h4></p>
     </div>

@@ -8,7 +8,6 @@ import java.util.List;
 import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.query.ObjectSelect;
-import org.apache.cayenne.query.SelectQuery;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 
 import edu.ndsu.finalProject.cayenne.persistent.*;
@@ -319,6 +318,13 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return cayenneService.newContext().newObject(Lesson.class);
 	}
 	
+	public LessonDate getNewLessonDate(ObjectContext context)
+	{
+		if(context == null)
+			context = cayenneService.newContext();
+		return context.newObject(LessonDate.class);
+	}
+	
 	public Guardianship getNewGuardianship() {
 		Guardianship gs = cayenneService.newContext().newObject(Guardianship.class);
 		return gs;
@@ -328,7 +334,10 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return cayenneService.newContext().newObject(InstructorWorking.class);
 	}
 	
-	
+	public Enrollment getNewEnrollment(ObjectContext context)
+	{
+		return context.newObject(Enrollment.class);
+	}
 	
 	//create new Instructor and initialize password salt to hash password with
 	public Instructor getNewInstructor() {
@@ -364,6 +373,10 @@ public class DatabaseServiceImpl implements DatabaseService {
 	
 	public void updateLesson(Lesson l) {
 		l.getObjectContext().commitChanges();
+	}
+	
+	public void updateEnrollment(Enrollment e) {
+		e.getObjectContext().commitChanges();
 	}
 	
 	//gets a list of guardians corresponding to a student
@@ -408,5 +421,43 @@ public class DatabaseServiceImpl implements DatabaseService {
 			
 		}
 		return myShifts;
+	}
+	
+	//returns number of students enrolled in a lesson
+	public Integer getNumEnrollmentsForLesson(Lesson l)
+	{
+		List<Enrollment> all = this.getAllEnrollments(l.getObjectContext());
+		int numEnrollments = 0;
+		for(Enrollment e : all)
+		{
+			if(e.getLesson().getPK() == l.getPK() && e.getStudent() != null) //if enrollment is for this lesson, that's one student enrolled
+				numEnrollments++;
+		}
+		return numEnrollments;
+	}
+	
+	//checks if student is already enrolled in this lesson
+	public boolean alreadyEnrolled(Enrollment e)
+	{
+		List<Enrollment> all = this.getAllEnrollments(e.getObjectContext());
+		for(Enrollment other : all)
+		{
+			if(other.equals(e))
+				return true;
+		}
+		return false; //made it through list
+	}
+	
+	//checks if lesson date is already in database
+	public boolean lessonDateExists(LessonDate ld)
+	{
+		List<LessonDate> all = this.getAllLessonDates(ld.getObjectContext());
+		for(LessonDate other : all)
+		{
+			if(other.getLessonDatetime().equals(ld.getLessonDatetime())
+					&& other.getLesson().getDescription().equals(ld.getLesson().getDescription()))
+				return true;
+		}
+		return false;
 	}
 }
