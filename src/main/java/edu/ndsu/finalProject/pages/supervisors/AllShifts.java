@@ -22,7 +22,6 @@ public class AllShifts {
 	private Shift shift; // row for grid
 
 	void setupRender() {
-		
 		shifts = db.getAllShifts(null);
 	}
 }

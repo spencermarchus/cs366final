@@ -10,6 +10,7 @@
 	  		
 	  		<t:label for="Description" />
 	  		<t:textfield t:id="Description" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="50" title="No special characters" value="lesson.description"/>
+	  		Note: Format description as "M-F Red Level 9AM June 3-7"<br/>
 	  		<t:label for="level" />
 	  		<t:select t:id="level" model="literal:Red,White,Blue" value="lesson.level"/>
 	  		<t:label for="capacity" />

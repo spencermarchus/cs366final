@@ -4,14 +4,13 @@
 
     <div class="row">
         <div class="span12">
-            <h4>Below is a summary of the lesson on ${lessonDate.lessonDay}.</h4>
+            <h4>Below is a summary of the lesson on ${lessonDate.lessonDatetime}.</h4>
         </div>
     </div>
 
     <div class="eg">
     	
-        <p>Lesson Day:  ${lessonDate.lessonDay}</p>
-        <p>Lesson Time:  ${lessonDate.lessonTime}</p>
+        <p>Lesson Date/Time:  ${lessonDate.lessonDatetime}</p>
         <p>Location: ${courseLocation}</p><br/>
         <h4>Instructors Assigned to Lesson:</h4>
         <t:grid source="instructors" row="instructor" include="name,phone,email" add="action">

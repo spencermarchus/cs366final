@@ -14,7 +14,7 @@
         <h4>All Scheduled Lessons</h4>
         <t:grid source="lessons" row="lesson" include="description, level, capacity" add="action" rowsPerPage="10">
         	<p:actionCell>
-        		<t:pagelink context="lesson.pk" page="instructors/ViewLesson" href="#">View Lesson</t:pagelink>
+        		<t:pagelink context="lesson.pk" page="instructors/ViewLesson" href="#">View Details</t:pagelink>
         	</p:actionCell>
         </t:grid>
         

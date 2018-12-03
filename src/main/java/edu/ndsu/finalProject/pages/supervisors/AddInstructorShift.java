@@ -50,13 +50,11 @@ public class AddInstructorShift {
 	@Property
 	private String selectedLessonDate;
 	
-	
 	@Inject
 	private SelectModelFactory selectModelFactory;
 		
 	void setupRender() {
 		iw = db.getNewInstructorWorking();
-		
 		
 	}
 
@@ -71,16 +69,16 @@ public class AddInstructorShift {
 				
 		if(!addForm.getHasErrors())
 		{
-			
 			for(String s : selectedInstructors)
 			{
-				
 				InstructorWorking iw = db.getNewInstructorWorking();
 				iw.setInstructor(db.getInstructorForName(iw.getObjectContext(), s));
 				iw.setDate(db.getLessonDateByToString(iw.getObjectContext(), selectedLessonDate));
 				
 				if(!(db.shiftExists(iw)))
+				{
 					iw.getObjectContext().commitChanges();
+				}
 			}
 		}
 	}

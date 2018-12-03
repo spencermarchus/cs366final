@@ -45,6 +45,8 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return null;
 	}
 	
+	//this awful method makes some of our Encoders work - it searches for a LessonDate by its toString() value
+	//this should be replaced if we had more time
 	public LessonDate getLessonDateByToString(ObjectContext context, String name)
 	{
 		List<LessonDate> all = getAllLessonDates(context);
@@ -183,6 +185,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		for(InstructorWorking iw : allInstructorWorkings)
 		{
 			allShifts.add(new Shift(
+					iw.getPK(),
 					iw.getInstructor().getName(), 
 					iw.getDate().getLessonDatetime(), 
 					iw.getDate().getLesson().getDescription(), 
@@ -267,9 +270,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 			{
 				//something didn't get formatted right - should never really happen
 			}
-			
 		}
-		
 		return lessonsWorking;
 	}
 	
@@ -395,7 +396,8 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return myGuardians;
 	}
 	
-	//gets a list of students corresponding to a guardian
+	//gets a list of students associated with a guardian
+	//generally, this gets a list of the parent's kids
 	public List<Student> getStudentsByGuardian(Guardian g)
 	{
 		List<Student> myStudents = new ArrayList<Student>();

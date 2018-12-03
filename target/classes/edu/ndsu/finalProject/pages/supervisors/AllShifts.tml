@@ -5,10 +5,8 @@
     <div class="row">
         <div class="span12">
             <p>All Shifts:</p>
-            <t:grid source="shifts" row="shift" add="action"></t:grid>
-            <p:actionCell>
-        		<t:pagelink source="shift" page="supervisors/EditShift" href="#">Edit</t:pagelink>
-        	</p:actionCell>
+            <t:grid source="shifts" row="shift" ></t:grid>
+            
             <br/> <br/>
             <br/> <br/>
             <t:pagelink page="supervisors/SupervisorPage" class="btn btn-primary" >Return</t:pagelink>

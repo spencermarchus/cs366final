@@ -78,7 +78,7 @@ public class AddLesson {
 	}
 	
 	Object onSuccess() {
-		return "supervisors/Alllessons";
+		return "instructors/ViewAllLessons";
 	}
 
 	
