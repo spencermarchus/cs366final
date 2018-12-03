@@ -174,6 +174,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return ObjectSelect.query(Guardian.class).select(context);
 	}
 	
+	//returns a join from Instructor to InstructorWorking to LessonDate to Lesson to Course containing instructor name and lesson info
 	public List<Shift> getAllShifts(ObjectContext context) {
 		if(context == null)
 			context = cayenneService.newContext();
@@ -409,6 +410,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return myStudents;
 	}
 	
+	//acts as a join from instructor to LessonDate, filtered by instructor
 	public List<Shift> getShiftsByInstructor(Instructor i)
 	{
 		List<Shift> all = this.getAllShifts(i.getObjectContext());
