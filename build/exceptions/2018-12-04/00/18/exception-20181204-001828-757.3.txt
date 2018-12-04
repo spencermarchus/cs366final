@@ -1,0 +1,201 @@
+EXCEPTION STACK:
+
+
+  Exception: org.apache.tapestry5.runtime.ComponentEventException
+    Message: Exception in method edu.ndsu.finalProject.pages.guardians.GuardianLessonView.onActivate(int), parameter #1: java.lang.RuntimeException: Coercion of null to type java.lang.Integer (via String --> Long, Long --> Integer) failed: For input string: "null"
+    context: <EventContext: null>
+  eventType: activate
+
+  Exception: org.apache.tapestry5.ioc.internal.OperationException
+    Message: Exception in method edu.ndsu.finalProject.pages.guardians.GuardianLessonView.onActivate(int), parameter #1: java.lang.RuntimeException: Coercion of null to type java.lang.Integer (via String --> Long, Long --> Integer) failed: For input string: "null"
+      trace: Handling page render request for page guardians/GuardianLessonView
+             Triggering event 'activate' on guardians/GuardianLessonView
+             Obtaining value for parameter #1 of edu.ndsu.finalProject.pages.guardians.GuardianLessonView.onActivate(int)
+
+  Exception: java.lang.IllegalArgumentException
+    Message: Exception in method edu.ndsu.finalProject.pages.guardians.GuardianLessonView.onActivate(int), parameter #1: java.lang.RuntimeException: Coercion of null to type java.lang.Integer (via String --> Long, Long --> Integer) failed: For input string: "null"
+
+  Exception: java.lang.RuntimeException
+    Message: Coercion of null to type java.lang.Integer (via String --> Long, Long --> Integer) failed: For input string: "null"
+
+  Exception: java.lang.NumberFormatException
+    Message: For input string: "null"
+
+  Stack trace:
+
+  - java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+  - java.lang.Long.parseLong(Long.java:589)
+  - java.lang.Long.valueOf(Long.java:803)
+  - org.apache.tapestry5.ioc.internal.BasicTypeCoercions$7.coerce(BasicTypeCoercions.java:106)
+  - org.apache.tapestry5.ioc.internal.BasicTypeCoercions$7.coerce(BasicTypeCoercions.java:102)
+  - org.apache.tapestry5.ioc.services.CoercionTuple$CoercionWrapper.coerce(CoercionTuple.java:55)
+  - org.apache.tapestry5.ioc.internal.services.CompoundCoercion.coerce(CompoundCoercion.java:44)
+  - org.apache.tapestry5.ioc.internal.services.TypeCoercerImpl$TargetCoercion.coerce(TypeCoercerImpl.java:69)
+  - org.apache.tapestry5.ioc.internal.services.TypeCoercerImpl.coerce(TypeCoercerImpl.java:157)
+  - $TypeCoercer_234fe75e01cca.coerce(Unknown Source)
+  - org.apache.tapestry5.internal.services.TypeCoercedValueEncoderFactory$1.toValue(TypeCoercedValueEncoderFactory.java:52)
+  - org.apache.tapestry5.internal.services.ContextValueEncoderImpl.toValue(ContextValueEncoderImpl.java:47)
+  - $ContextValueEncoder_234fe75e01d44.toValue(Unknown Source)
+  - org.apache.tapestry5.internal.URLEventContext.get(URLEventContext.java:43)
+  - org.apache.tapestry5.internal.services.ComponentEventImpl.coerceContext(ComponentEventImpl.java:96)
+  - org.apache.tapestry5.internal.transform.OnEventWorker$10.valueForEventHandlerMethodParameter(OnEventWorker.java:550)
+  - org.apache.tapestry5.internal.transform.EventHandlerMethodParameterSource$ParameterExtractor.invoke(EventHandlerMethodParameterSource.java:43)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.transform.EventHandlerMethodParameterSource.get(EventHandlerMethodParameterSource.java:66)
+  - edu.ndsu.finalProject.pages.guardians.GuardianLessonView.dispatchComponentEvent(GuardianLessonView.java)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.dispatchEvent(ComponentPageElementImpl.java:917)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.processEventTriggering(ComponentPageElementImpl.java:1102)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.access$3100(ComponentPageElementImpl.java:57)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl$5.invoke(ComponentPageElementImpl.java:1047)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl$5.invoke(ComponentPageElementImpl.java:1044)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.invoke(OperationTrackerImpl.java:82)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.invoke(PerThreadOperationTracker.java:72)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.invoke(RegistryImpl.java:1260)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementResourcesImpl.invoke(ComponentPageElementResourcesImpl.java:154)
+  - org.apache.tapestry5.internal.structure.ComponentPageElementImpl.triggerContextEvent(ComponentPageElementImpl.java:1043)
+  - org.apache.tapestry5.internal.structure.InternalComponentResourcesImpl.triggerContextEvent(InternalComponentResourcesImpl.java:288)
+  - org.apache.tapestry5.internal.services.PageActivatorImpl.activatePage(PageActivatorImpl.java:51)
+  - $PageActivator_234fe75e01d53.activatePage(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderRequestHandlerImpl.handle(PageRenderRequestHandlerImpl.java:60)
+  - org.apache.tapestry5.modules.TapestryModule$34.handle(TapestryModule.java:1974)
+  - $PageRenderRequestHandler_234fe75e01d54.handle(Unknown Source)
+  - $PageRenderRequestHandler_234fe75e01d47.handle(Unknown Source)
+  - org.apache.tapestry5.internal.services.ComponentRequestHandlerTerminator.handlePageRender(ComponentRequestHandlerTerminator.java:48)
+  - org.apache.tapestry5.internal.services.DeferredResponseRenderer.handlePageRender(DeferredResponseRenderer.java:52)
+  - $ComponentRequestHandler_234fe75e01d48.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.services.InitializeActivePageName.handlePageRender(InitializeActivePageName.java:47)
+  - $ComponentRequestHandler_234fe75e01d48.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker$2.run(RequestOperationTracker.java:73)
+  - org.apache.tapestry5.ioc.internal.OperationTrackerImpl.run(OperationTrackerImpl.java:56)
+  - org.apache.tapestry5.ioc.internal.PerThreadOperationTracker.run(PerThreadOperationTracker.java:60)
+  - org.apache.tapestry5.ioc.internal.RegistryImpl.run(RegistryImpl.java:1254)
+  - org.apache.tapestry5.internal.services.RequestOperationTracker.handlePageRender(RequestOperationTracker.java:66)
+  - $ComponentRequestHandler_234fe75e01d48.handlePageRender(Unknown Source)
+  - org.tynamo.security.SecurityComponentRequestFilter.handlePageRender(SecurityComponentRequestFilter.java:49)
+  - $ComponentRequestFilter_234fe75e01d45.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_234fe75e01d48.handlePageRender(Unknown Source)
+  - $ComponentRequestHandler_234fe75e01d17.handlePageRender(Unknown Source)
+  - org.apache.tapestry5.internal.services.PageRenderDispatcher.dispatch(PageRenderDispatcher.java:55)
+  - $Dispatcher_234fe75e01d18.dispatch(Unknown Source)
+  - $Dispatcher_234fe75e01d0f.dispatch(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$RequestHandlerTerminator.service(TapestryModule.java:305)
+  - org.apache.tapestry5.internal.services.RequestErrorFilter.service(RequestErrorFilter.java:26)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$3.service(TapestryModule.java:846)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$2.service(TapestryModule.java:836)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.StaticFilesFilter.service(StaticFilesFilter.java:89)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - edu.ndsu.finalProject.services.AppModule$1.service(AppModule.java:134)
+  - $RequestFilter_234fe75e01d0a.service(Unknown Source)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:105)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter$2.invoke(CheckForUpdatesFilter.java:95)
+  - org.apache.tapestry5.ioc.internal.util.ConcurrentBarrier.withRead(ConcurrentBarrier.java:83)
+  - org.apache.tapestry5.internal.services.CheckForUpdatesFilter.service(CheckForUpdatesFilter.java:119)
+  - $RequestHandler_234fe75e01d10.service(Unknown Source)
+  - $RequestHandler_234fe75e01cf4.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$HttpServletRequestHandlerTerminator.service(TapestryModule.java:256)
+  - org.apache.tapestry5.internal.gzip.GZipFilter.service(GZipFilter.java:59)
+  - $HttpServletRequestHandler_234fe75e01cf6.service(Unknown Source)
+  - org.apache.tapestry5.internal.services.IgnoredPathsFilter.service(IgnoredPathsFilter.java:62)
+  - $HttpServletRequestFilter_234fe75e01cf0.service(Unknown Source)
+  - $HttpServletRequestHandler_234fe75e01cf6.service(Unknown Source)
+  - org.tynamo.security.services.impl.SecurityConfiguration.service(SecurityConfiguration.java:69)
+  - $HttpServletRequestFilter_234fe75e01cf3.service(Unknown Source)
+  - $HttpServletRequestHandler_234fe75e01cf6.service(Unknown Source)
+  - org.apache.tapestry5.modules.TapestryModule$1.service(TapestryModule.java:796)
+  - $HttpServletRequestHandler_234fe75e01cf6.service(Unknown Source)
+  - $HttpServletRequestHandler_234fe75e01cef.service(Unknown Source)
+  - org.apache.tapestry5.TapestryFilter.doFilter(TapestryFilter.java:166)
+  - org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1148)
+  - org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:387)
+  - org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+  - org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+  - org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:765)
+  - org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:417)
+  - org.mortbay.jetty.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:230)
+  - org.mortbay.jetty.handler.HandlerCollection.handle(HandlerCollection.java:114)
+  - org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
+  - org.mortbay.jetty.Server.handle(Server.java:324)
+  - org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:535)
+  - org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:865)
+  - org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:539)
+  - org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
+  - org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
+  - org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
+  - org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:520)
+
+REQUEST:
+
+Basic Information:
+
+                contextPath: /finalProject
+                      flags: requestedSessionIdValid
+                     method: GET
+                       path: /guardians/guardianlessonview/null
+                     locale: en_US
+                 serverName: localhost
+                 remoteHost: 0:0:0:0:0:0:0:1
+
+Headers:
+
+                     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+            Accept-Encoding: gzip, deflate, br
+            Accept-Language: en-US,en;q=0.9
+                 Connection: keep-alive
+                     Cookie: shiroSavedRequest=/finalProject/guardians/addstudent; JSESSIONID=1rw5tadw71jyh
+                        DNT: 1
+                       Host: localhost:8080
+                    Referer: http://localhost:8080/finalProject/guardians/guardianlessondateview/200
+  Upgrade-Insecure-Requests: 1
+                 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
+
+SESSION:
+
+  org.apache.shiro.subject.support.DefaultSubjectContext_AUTHENTICATED_SESSION_KEY: true
+     org.apache.shiro.subject.support.DefaultSubjectContext_PRINCIPALS_SESSION_KEY: smarchus@gmail.com
+                  org.apache.shiro.web.session.HttpServletSession.HOST_SESSION_KEY: 0:0:0:0:0:0:0:1
+                                                              sso:java.lang.String: 200
+                                      sso:org.apache.tapestry5.alerts.AlertStorage: org.apache.tapestry5.alerts.AlertStorage@224dd3c2
+                                                state:guardians/Guardian::guardian: {<ObjectId:Guardian, guardian_id=200>; committed; [address=>123 1st St
+Bismarck, ND
+58501; guardianships=>?; phone=>7015872545; name=>Sarah Marchus; passwordSalt=>9565f125a5a38bfa26f917d77da1c28b; email=>smarchus@gmail.com; passwordHash=>49cec347945f1c90c9604eff398bab8d1a1939af30d6a40e7dcbec2e3d2026097252fba28a05dd7475378b11d47e5697985778d257eeb80aacff1d6e07bfd14f]}
+                                        state:guardians/GuardianLessonView::lesson: {<ObjectId:Lesson, lesson_id=200>; committed; [lessonDates=>(..); level=>red; description=>M-F Red Level 9AM June 3-7; course=>{<ObjectId:Course, course_id=200>}; capacity=>32; enrollments=>?]}
+                    state:guardians/GuardianLessonView:grid:defaultPaginationModel: GridPaginationModelImpl[currentPage=null, sortColumnId=null, sortAscending=null]
+                                            state:guardians/ViewGuardian::guardian: {<ObjectId:Guardian, guardian_id=200>; committed; [address=>123 1st St
+Bismarck, ND
+58501; guardianships=>?; phone=>7015872545; name=>Sarah Marchus; passwordSalt=>9565f125a5a38bfa26f917d77da1c28b; email=>smarchus@gmail.com; passwordHash=>49cec347945f1c90c9604eff398bab8d1a1939af30d6a40e7dcbec2e3d2026097252fba28a05dd7475378b11d47e5697985778d257eeb80aacff1d6e07bfd14f]}
+                                             state:guardians/ViewGuardian::student: {<ObjectId:Student, student_id=200>; committed; [guardianships=>(..); recommendedLevel=>red; name=>Johnny Marchus; birthDate=>1/1/2007; enrollments=>(..)]}
+                          state:guardians/ViewGuardian:grid:defaultPaginationModel: GridPaginationModelImpl[currentPage=null, sortColumnId=null, sortAscending=null]
+                                              state:guardians/ViewStudent::student: {<ObjectId:Student, student_id=200>; committed; [recommendedLevel=>red; guardianships=>?; name=>Johnny Marchus; birthDate=>1/1/2007; enrollments=>?]}
+                           state:guardians/ViewStudent:grid:defaultPaginationModel: GridPaginationModelImpl[currentPage=null, sortColumnId=null, sortAscending=null]
+
+SYSTEM INFORMATION:
+
+Memory:
+      252,568,272 bytes free
+      382,205,952 bytes total
+    1,648,361,472 bytes max
+
+17 Threads:
+                                                           Reference Handler WAITING, daemon, priority 10
+                                                                   Finalizer WAITING, daemon, priority 8
+                                                           Signal Dispatcher RUNNABLE, daemon, priority 9
+                                                             Attach Listener RUNNABLE, daemon
+                                                                        main WAITING
+                                                             BuilderThread 0 WAITING
+  1434749213@qtp-474562512-1 - Acceptor0 SelectChannelConnector@0.0.0.0:8080 RUNNABLE
+                                                                     Timer-0 TIMED_WAITING, daemon
+                                                    cayenne-edt-2025043625-0 TIMED_WAITING, daemon
+                                                    cayenne-edt-2025043625-1 TIMED_WAITING, daemon
+                                                    cayenne-edt-2025043625-2 TIMED_WAITING, daemon
+                                                    cayenne-edt-2025043625-3 TIMED_WAITING, daemon
+                                                    cayenne-edt-2025043625-4 TIMED_WAITING, daemon
+                                         Abandoned connection cleanup thread TIMED_WAITING, daemon
+                                         PoolingDataSourceManager-1852720393 TIMED_WAITING, daemon
+*                                                1309193310@qtp-474562512-10 RUNNABLE
+                                                 1331823202@qtp-474562512-11 TIMED_WAITING

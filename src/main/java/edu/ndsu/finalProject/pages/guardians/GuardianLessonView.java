@@ -29,6 +29,7 @@ public class GuardianLessonView
 	DatabaseService db;
 	
 	@Property
+	@Persist
 	private String PK;
 	
 	@Property

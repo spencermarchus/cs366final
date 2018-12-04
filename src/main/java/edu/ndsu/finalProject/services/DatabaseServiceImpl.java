@@ -333,7 +333,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 	public Guardianship getNewGuardianship(ObjectContext context) {
 		if(context == null)
 			context = cayenneService.newContext();
-		Guardianship gs = cayenneService.newContext().newObject(Guardianship.class);
+		Guardianship gs = context.newObject(Guardianship.class);
 		return gs;
 	}
 	

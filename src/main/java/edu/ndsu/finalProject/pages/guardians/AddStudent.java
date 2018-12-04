@@ -49,6 +49,8 @@ public class AddStudent {
 	void setupRender() {
 		username = securityService.getSubject().getPrincipal().toString();	
 		guardian = uas.getGuardianByEmail(username);
+		if(guardian == null)
+			System.out.println(guardian.getName()+"---------------------------------");
 		student = db.getNewStudent(guardian.getObjectContext());
 		
 	}
@@ -66,7 +68,7 @@ public class AddStudent {
 		if(!addForm.getHasErrors()) {
 			db.updateStudent(student);
 			
-			Guardianship gs = db.getNewGuardianship(guardian.getObjectContext());
+			Guardianship gs = db.getNewGuardianship(student.getObjectContext());
 			gs.setStudent(student);
 			gs.setGuardian(guardian);
 			db.updateGuardianship(gs);

@@ -32,7 +32,7 @@ public class ViewStudent {
 	private Student student;
 
 	@Property
-	@SessionState
+	@Persist
 	private String PK;
 	
 	@Inject
