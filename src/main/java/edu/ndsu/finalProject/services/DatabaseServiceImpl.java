@@ -309,9 +309,12 @@ public class DatabaseServiceImpl implements DatabaseService {
 	}
 	
 	//create new student 
-	public Student getNewStudent() {
-		Student s = cayenneService.newContext().newObject(Student.class);
-		s.setRecommendedLevel("red");
+	public Student getNewStudent(ObjectContext context) {
+		if(context == null)
+			context = cayenneService.newContext();
+		
+		Student s = context.newObject(Student.class);
+		s.setRecommendedLevel("Red");
 		return s;
 	}
 		
@@ -327,7 +330,9 @@ public class DatabaseServiceImpl implements DatabaseService {
 		return context.newObject(LessonDate.class);
 	}
 	
-	public Guardianship getNewGuardianship() {
+	public Guardianship getNewGuardianship(ObjectContext context) {
+		if(context == null)
+			context = cayenneService.newContext();
 		Guardianship gs = cayenneService.newContext().newObject(Guardianship.class);
 		return gs;
 	}

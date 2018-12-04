@@ -38,8 +38,8 @@ public interface DatabaseService {
 	Instructor getNewInstructor();
 	InstructorWorking getNewInstructorWorking();
 	Guardian getNewGuardian();
-	Guardianship getNewGuardianship();
-	Student getNewStudent();
+	Guardianship getNewGuardianship(ObjectContext context);
+	Student getNewStudent(ObjectContext context);
 	Lesson getNewLesson();
 	void updateInstructor(Instructor i);
 	void updateGuardianship(Guardianship gs);
