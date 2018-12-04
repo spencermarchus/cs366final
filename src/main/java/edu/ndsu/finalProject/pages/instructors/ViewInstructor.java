@@ -14,7 +14,7 @@ import edu.ndsu.finalProject.services.DatabaseService;
 import edu.ndsu.finalProject.services.UserAccountService;
 
 
-@RequiresRoles("guardian")
+@RequiresRoles("instructor")
 public class ViewInstructor {
 	@Inject
 	private DatabaseService db;

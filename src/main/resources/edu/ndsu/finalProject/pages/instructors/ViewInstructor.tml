@@ -19,6 +19,6 @@
 		
     </div>
     
-    <t:pagelink page="guardians/GuardianPage" href="#">Return to guardian home</t:pagelink>
+    <t:pagelink class="btn btn-primary" page="instructors/InstructorPage" href="#">Return</t:pagelink>
     
 </html>
