@@ -13,10 +13,7 @@
         <p>Lesson Date/Time:  ${lessonDate.lessonDatetime}</p>
         <p>Location: ${courseLocation}</p><br/>
         <h4>Instructors Assigned to Lesson:</h4>
-        <t:grid source="instructors" row="instructor" include="name,phone,email" add="action">
-        	<p:actionCell>
-        		<t:pagelink context="lessonDate.pk" page="" href="#">View Details</t:pagelink>
-        	</p:actionCell>
+        <t:grid source="instructors" row="instructor" include="name,phone,email" >
         </t:grid>
         
 		
