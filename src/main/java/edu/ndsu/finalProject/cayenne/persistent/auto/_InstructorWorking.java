@@ -18,8 +18,17 @@ public abstract class _InstructorWorking extends CayenneDataObject {
 
     public static final String WORKING_ID_PK_COLUMN = "working_id";
 
+    public static final Property<LessonDate> DATE = Property.create("date", LessonDate.class);
     public static final Property<Instructor> INSTRUCTOR = Property.create("instructor", Instructor.class);
-    public static final Property<LessonDate> LESSONDATE = Property.create("lessondate", LessonDate.class);
+
+    public void setDate(LessonDate date) {
+        setToOneTarget("date", date, true);
+    }
+
+    public LessonDate getDate() {
+        return (LessonDate)readProperty("date");
+    }
+
 
     public void setInstructor(Instructor instructor) {
         setToOneTarget("instructor", instructor, true);
@@ -27,15 +36,6 @@ public abstract class _InstructorWorking extends CayenneDataObject {
 
     public Instructor getInstructor() {
         return (Instructor)readProperty("instructor");
-    }
-
-
-    public void setLessondate(LessonDate lessondate) {
-        setToOneTarget("lessondate", lessondate, true);
-    }
-
-    public LessonDate getLessondate() {
-        return (LessonDate)readProperty("lessondate");
     }
 
 

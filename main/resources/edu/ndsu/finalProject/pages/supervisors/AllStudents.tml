@@ -1,0 +1,19 @@
+<html t:type="layout" title="Students"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>All Students:</p>
+            <t:grid source="students" row="student"></t:grid>
+            <br/> <br/>
+            <br/> <br/>
+            <t:pagelink page="supervisors/SupervisorPage" class="btn btn-primary" >Return</t:pagelink>
+        </div>
+    </div>
+
+    
+    
+
+    
+</html>

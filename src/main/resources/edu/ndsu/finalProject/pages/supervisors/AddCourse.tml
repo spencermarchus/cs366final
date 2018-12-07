@@ -1,0 +1,28 @@
+<html t:type="layout" title="Add Course"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Add Course</h3>
+      
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		<t:label for="name" />
+	  		<t:textfield t:id="name" required="" pattern="[A-Za-z ]+" maxlength="50" title="Only letters A-Z" value="course.name"/> 
+	  		<t:label for="phone" />
+	  		<t:textfield t:id="phone" required="" pattern="[0-9]{10}" title="Phone number with only numbers" value="course.phone"/>
+	  		<t:label for="address" />
+	  		<t:textfield t:id="address" required="" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="50" title="No special characters" value="course.address"/>
+	  		<t:label for="email" />
+	  		<t:textfield t:id="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50" title="Example sample@gmail.com" value="course.email"/> 
+	  		<t:label for="website" />
+	  		<t:textfield t:id="website" required="" pattern="https?://.+" maxlength="250" title="Include http://" value="course.website"/>
+	  		
+			<br />
+			
+			
+	  		<t:submit value="Save" />&nbsp;
+	  		<t:pagelink page="supervisors/SupervisorPage" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>

@@ -2,6 +2,6 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>Contact edu.ndsu ...</p>
+    <p>For support please contact Spencer Marchus at spencer.marchus@ndsu.edu</p>
 
 </html>

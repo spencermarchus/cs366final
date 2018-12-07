@@ -1,0 +1,22 @@
+<html t:type="layout" title="My Account"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+             <p><h3>Instructor Page</h3></p>
+            <p><t:pagelink class="btn btn-default" page="instructors/MyShifts">My Shifts&raquo;</t:pagelink> </p>
+						
+            <p><t:pagelink class="btn btn-default" page="instructors/ChangePassword">Change Password&raquo;</t:pagelink></p>
+			<p><t:pagelink class="btn btn-default" page="instructors/ViewInstructor">View Account Details&raquo;</t:pagelink></p>
+			<p><t:pagelink class="btn btn-default" page="instructors/ViewAllLessons">View All Lessons&raquo;</t:pagelink></p>
+			<br/> 
+			<t:pagelink page="Index" class="btn btn-primary"> Return to home</t:pagelink>
+        </div>
+    </div>
+
+    
+    
+    
+    
+</html>

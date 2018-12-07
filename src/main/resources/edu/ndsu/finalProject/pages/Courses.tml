@@ -1,0 +1,16 @@
+<html t:type="layout" title="Courses"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>All Courses:</p>
+            <t:grid source="courses" include="name, phone, address, email, website" row="course"></t:grid>
+        </div>
+    </div>
+
+    
+    
+    <t:pagelink page="Index" href="#">Return to home</t:pagelink>
+    
+</html>

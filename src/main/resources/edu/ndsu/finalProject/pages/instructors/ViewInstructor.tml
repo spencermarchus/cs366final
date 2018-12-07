@@ -1,0 +1,24 @@
+<html t:type="layout" title="View Instructor"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>Below is a summary of your account.</p>
+        </div>
+    </div>
+
+    <div class="eg">
+    	
+        <p>Email:  ${instructor.email}</p>
+        <p>Name:  ${instructor.name}</p>
+        <p>Address: ${instructor.address}</p>
+        <br/>
+        
+        
+		
+    </div>
+    
+    <t:pagelink class="btn btn-primary" page="instructors/InstructorPage" href="#">Return</t:pagelink>
+    
+</html>

@@ -44,30 +44,7 @@ public class Index
     return eventContext.getCount() > 0 ?
         new HttpError(404, "Resource not found") :
         null;
-  }
-
-
-  Object onActionFromLearnMore()
-  {
-    about.setLearn("LearnMore");
-
-    return about;
-  }
-
-  @Log
-  void onComplete()
-  {
-    logger.info("Complete call on Index page");
-  }
-
-  @Log
-  void onAjax()
-  {
-    logger.info("Ajax call on Index page");
-
-    ajaxResponseRenderer.addRender("middlezone", block);
-  }
-
+  } 
 
   public Date getCurrentTime()
   {

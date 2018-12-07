@@ -20,36 +20,16 @@ public abstract class _LessonDate extends CayenneDataObject {
 
     public static final String DATE_ID_PK_COLUMN = "date_id";
 
-    public static final Property<String> LESSON_DAY = Property.create("lessonDay", String.class);
-    public static final Property<String> LESSON_TIME = Property.create("lessonTime", String.class);
-    public static final Property<List<InstructorWorking>> INSTRUCTOR_WORKINGS = Property.create("instructorWorkings", List.class);
+    public static final Property<String> LESSON_DATETIME = Property.create("lessonDatetime", String.class);
     public static final Property<Lesson> LESSON = Property.create("lesson", Lesson.class);
+    public static final Property<List<InstructorWorking>> WORKINGS = Property.create("workings", List.class);
 
-    public void setLessonDay(String lessonDay) {
-        writeProperty("lessonDay", lessonDay);
+    public void setLessonDatetime(String lessonDatetime) {
+        writeProperty("lessonDatetime", lessonDatetime);
     }
-    public String getLessonDay() {
-        return (String)readProperty("lessonDay");
+    public String getLessonDatetime() {
+        return (String)readProperty("lessonDatetime");
     }
-
-    public void setLessonTime(String lessonTime) {
-        writeProperty("lessonTime", lessonTime);
-    }
-    public String getLessonTime() {
-        return (String)readProperty("lessonTime");
-    }
-
-    public void addToInstructorWorkings(InstructorWorking obj) {
-        addToManyTarget("instructorWorkings", obj, true);
-    }
-    public void removeFromInstructorWorkings(InstructorWorking obj) {
-        removeToManyTarget("instructorWorkings", obj, true);
-    }
-    @SuppressWarnings("unchecked")
-    public List<InstructorWorking> getInstructorWorkings() {
-        return (List<InstructorWorking>)readProperty("instructorWorkings");
-    }
-
 
     public void setLesson(Lesson lesson) {
         setToOneTarget("lesson", lesson, true);
@@ -57,6 +37,18 @@ public abstract class _LessonDate extends CayenneDataObject {
 
     public Lesson getLesson() {
         return (Lesson)readProperty("lesson");
+    }
+
+
+    public void addToWorkings(InstructorWorking obj) {
+        addToManyTarget("workings", obj, true);
+    }
+    public void removeFromWorkings(InstructorWorking obj) {
+        removeToManyTarget("workings", obj, true);
+    }
+    @SuppressWarnings("unchecked")
+    public List<InstructorWorking> getWorkings() {
+        return (List<InstructorWorking>)readProperty("workings");
     }
 
 

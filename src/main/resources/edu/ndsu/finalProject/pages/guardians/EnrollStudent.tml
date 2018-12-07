@@ -1,0 +1,20 @@
+<html t:type="layout" title="Enroll Student"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Enroll Student in Lesson</h3>
+    <h4>Please select one of your students to enroll in a scheduled lesson</h4>
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		<t:label for="student" />
+	  		<t:select t:id="student" value="student" model="selectModelStudent" encoder="valueEncoderStudent"/>
+	  		<t:label for="lesson" />
+	  		<t:select t:id="lesson" value="lesson" model="selectModelLesson" encoder="valueEncoderLesson"/>
+			<br />
+			
+	  		<t:submit value="Submit" />&nbsp;
+	  		<t:pagelink page="guardians/GuardianPage" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>

@@ -21,12 +21,10 @@ public abstract class _Guardian extends CayenneDataObject {
 
     public static final Property<String> ADDRESS = Property.create("address", String.class);
     public static final Property<String> EMAIL = Property.create("email", String.class);
-    public static final Property<String> F_NAME = Property.create("fName", String.class);
-    public static final Property<String> L_NAME = Property.create("lName", String.class);
+    public static final Property<String> NAME = Property.create("name", String.class);
     public static final Property<String> PASSWORD_HASH = Property.create("passwordHash", String.class);
     public static final Property<String> PASSWORD_SALT = Property.create("passwordSalt", String.class);
     public static final Property<String> PHONE = Property.create("phone", String.class);
-    public static final Property<Integer> USER_ID = Property.create("userID", Integer.class);
     public static final Property<List<Guardianship>> GUARDIANSHIPS = Property.create("guardianships", List.class);
 
     public void setAddress(String address) {
@@ -43,18 +41,11 @@ public abstract class _Guardian extends CayenneDataObject {
         return (String)readProperty("email");
     }
 
-    public void setFName(String fName) {
-        writeProperty("fName", fName);
+    public void setName(String name) {
+        writeProperty("name", name);
     }
-    public String getFName() {
-        return (String)readProperty("fName");
-    }
-
-    public void setLName(String lName) {
-        writeProperty("lName", lName);
-    }
-    public String getLName() {
-        return (String)readProperty("lName");
+    public String getName() {
+        return (String)readProperty("name");
     }
 
     public void setPasswordHash(String passwordHash) {
@@ -76,13 +67,6 @@ public abstract class _Guardian extends CayenneDataObject {
     }
     public String getPhone() {
         return (String)readProperty("phone");
-    }
-
-    public void setUserID(Integer userID) {
-        writeProperty("userID", userID);
-    }
-    public Integer getUserID() {
-        return (Integer)readProperty("userID");
     }
 
     public void addToGuardianships(Guardianship obj) {

@@ -1,0 +1,19 @@
+<html t:type="layout" title="My Shifts"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+
+	<div class="eg">
+		Here is a list of your recent and upcoming shifts: <br/><br/>
+        <t:grid source="shifts" row="shift" pagerPosition="top">
+
+        </t:grid>
+    </div>
+
+
+ 
+ 
+     <br/>
+        <t:pagelink page="instructors/InstructorPage" class="btn btn-primary" >Return</t:pagelink>
+
+</html>

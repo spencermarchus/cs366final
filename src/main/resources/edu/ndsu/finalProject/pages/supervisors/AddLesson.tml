@@ -1,0 +1,27 @@
+<html t:type="layout" title="Add Instructor"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+    
+    <h3>Add Lesson</h3>
+      
+    <div>
+  		<t:form t:id="addForm">
+	  		<t:errors />  
+	  		
+	  		<t:label for="Description" />
+	  		<t:textfield t:id="Description" pattern="([a-zA-Z0-9]| |,|.)+" maxlength="50" title="No special characters" value="lesson.description"/>
+	  		Note: Format description as "M-F Red Level 9AM June 3-7"<br/>
+	  		<t:label for="level" />
+	  		<t:select t:id="level" model="literal:Red,White,Blue" value="lesson.level"/>
+	  		<t:label for="capacity" />
+	  		<t:textfield t:id="capacity" pattern="[0-9]+" title="Capacity should be a number from 1-99" min="1" max="99" value="lesson.capacity"/>
+	  		
+	  		<t:label for="course" />
+ 			<t:select t:id="course" value="lesson.course" model="selectModelCourse" encoder="valueEncoder"/>
+			<br />
+			
+	  		<t:submit value="Save" />&nbsp;
+	  		<t:pagelink page="supervisors/SupervisorPage" class="btn btn-default">Cancel</t:pagelink>
+  		</t:form>
+  	</div>
+</html>

@@ -1,0 +1,26 @@
+<html t:type="layout" title="All Lessons"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>Below is a list of all scheduled lessons in the database</p>
+        </div>
+    </div>
+
+    <div class="eg">
+    	
+       
+        <h4>All Scheduled Lessons</h4>
+        <t:grid source="lessons" row="lesson" include="description, level, capacity" add="action" rowsPerPage="10">
+        	<p:actionCell>
+        		<t:pagelink context="lesson.pk" page="instructors/ViewLesson" href="#">View Details</t:pagelink>
+        	</p:actionCell>
+        </t:grid>
+        
+		
+    </div>
+    
+    <t:pagelink page="instructors/InstructorPage" href="#">Return</t:pagelink>
+    
+</html>

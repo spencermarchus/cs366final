@@ -1,0 +1,17 @@
+<html t:type="layout" title="Shifts"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <p>All Shifts:</p>
+            <t:grid source="shifts" row="shift"></t:grid>
+            <br/> <br/>
+            <br/> <br/>
+            <t:pagelink page="supervisors/SupervisorPage" class="btn btn-primary" >Return</t:pagelink>
+        </div>
+    </div>
+
+   
+    
+</html>

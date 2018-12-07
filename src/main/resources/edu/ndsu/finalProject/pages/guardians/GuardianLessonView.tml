@@ -1,0 +1,28 @@
+<html t:type="layout" title="Lesson Details"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <div class="row">
+        <div class="span12">
+            <h4>Below is a summary of the lesson.</h4>
+        </div>
+    </div>
+
+    <div class="eg">
+    	
+        <p>Description:  ${lesson.description}</p>
+        <p>Level:  ${lesson.level}</p>
+        <p>Location: ${courseLocation}</p>
+        <h4>Lesson Dates</h4>
+        <t:grid source="lesson.lessonDates" row="lessonDate" include="lessonDatetime" add="action">
+        	<p:actionCell>
+        		<t:pagelink context="lessonDate.pk" page="guardians/GuardianLessonDateView" href="#">View Details</t:pagelink>
+        	</p:actionCell>
+        </t:grid>
+        
+		
+    </div>
+    
+    <t:pagelink  class="btn btn-primary" page="guardians/viewstudent" href="#">Return</t:pagelink>
+    
+</html>
